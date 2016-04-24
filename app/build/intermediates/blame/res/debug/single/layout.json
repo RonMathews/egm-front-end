@@ -104,12 +104,12 @@
         "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/layout/travel_diary_continue.xml"
     },
     {
-        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/layout/activity_signup.xml",
-        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/layout/activity_signup.xml"
-    },
-    {
         "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/layout/activity_group_trip_chat_window.xml",
         "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/layout/activity_group_trip_chat_window.xml"
+    },
+    {
+        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/layout/activity_signup.xml",
+        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/layout/activity_signup.xml"
     },
     {
         "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
@@ -120,12 +120,12 @@
         "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_big_media.xml"
     },
     {
-        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
-        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_popup_menu_item_layout.xml"
-    },
-    {
         "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/layout/travel_diary_foo.xml",
         "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/layout/travel_diary_foo.xml"
+    },
+    {
+        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
+        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
         "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
@@ -192,12 +192,12 @@
         "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_media.xml"
     },
     {
-        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
-        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_simple_overlay_action_mode.xml"
-    },
-    {
         "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
         "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",

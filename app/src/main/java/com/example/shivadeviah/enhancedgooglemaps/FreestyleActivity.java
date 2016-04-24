@@ -135,7 +135,7 @@ public class FreestyleActivity extends Activity implements View.OnClickListener 
             Log.i("", "___________________test_________________");
             Log.i("source", source);
             Log.i("dest", destination);
-            Log.i("json", result == null? "Nothing" : result);
+            Log.v("json(LENGTH)", result.length()+"");
 
 
             Intent i = new Intent(FreestyleActivity.this, FreestyleInterimActivity.class);

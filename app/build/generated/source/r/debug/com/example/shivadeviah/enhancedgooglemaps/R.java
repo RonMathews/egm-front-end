@@ -2983,7 +2983,8 @@ containing a value of this type.
         public static final int line1=0x7f0d00e7;
         public static final int line3=0x7f0d00eb;
         public static final int linearLayout=0x7f0d00bb;
-        public static final int linearLayoutToKill=0x7f0d00b3;
+        public static final int linearLayoutToKill1=0x7f0d00b3;
+        public static final int linearLayoutToKill2=0x7f0d00b7;
         public static final int listMode=0x7f0d000c;
         public static final int list_item=0x7f0d0068;
         public static final int login=0x7f0d0092;
@@ -3009,7 +3010,7 @@ containing a value of this type.
         public static final int never=0x7f0d003d;
         public static final int none=0x7f0d0011;
         public static final int normal=0x7f0d000d;
-        public static final int or=0x7f0d00b8;
+        public static final int or=0x7f0d00b5;
         public static final int parallax=0x7f0d001c;
         public static final int parentPanel=0x7f0d006d;
         public static final int password=0x7f0d00b1;
@@ -3031,7 +3032,7 @@ containing a value of this type.
         public static final int progress_circular=0x7f0d0007;
         public static final int progress_horizontal=0x7f0d0008;
         public static final int radio=0x7f0d007b;
-        public static final int radius=0x7f0d00b6;
+        public static final int radius=0x7f0d00b8;
         public static final int registration_age=0x7f0d00c2;
         public static final int registration_name=0x7f0d00c1;
         public static final int right=0x7f0d0025;
@@ -3055,7 +3056,7 @@ containing a value of this type.
         public static final int search_plate=0x7f0d0089;
         public static final int search_src_text=0x7f0d008a;
         public static final int search_voice_btn=0x7f0d008e;
-        public static final int seekBar=0x7f0d00b7;
+        public static final int seekBar=0x7f0d00b9;
         public static final int select_dialog_listview=0x7f0d008f;
         public static final int selectionDetails=0x7f0d004e;
         public static final int settings=0x7f0d00d7;
@@ -3090,7 +3091,7 @@ containing a value of this type.
         public static final int text=0x7f0d00ec;
         public static final int text2=0x7f0d00ea;
         public static final int textSpacerNoButtons=0x7f0d0074;
-        public static final int textView=0x7f0d00b9;
+        public static final int textView=0x7f0d00b6;
         public static final int textView4=0x7f0d00c3;
         public static final int textView5=0x7f0d00c6;
         public static final int time=0x7f0d00e8;
@@ -3106,7 +3107,6 @@ containing a value of this type.
         public static final int up=0x7f0d000a;
         public static final int useLogo=0x7f0d0015;
         public static final int user_location=0x7f0d00bc;
-        public static final int user_location_single=0x7f0d00b5;
         public static final int view=0x7f0d00c7;
         public static final int view_offset_helper=0x7f0d000b;
         public static final int wide=0x7f0d0041;

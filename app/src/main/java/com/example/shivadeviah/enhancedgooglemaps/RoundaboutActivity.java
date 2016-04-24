@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +38,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Filter;
 import android.widget.Filterable;
+
+import org.w3c.dom.Text;
 
 
 public class RoundaboutActivity extends AppCompatActivity {
@@ -73,6 +76,10 @@ public class RoundaboutActivity extends AppCompatActivity {
         progress.setMessage("Posting data...");
         progress.setCancelable(false);
         location = (EditText) findViewById(R.id.user_location);
+
+        TextView temp = (TextView) findViewById(R.id.textView);
+        temp.setGravity(Gravity.CENTER_HORIZONTAL);
+
 
         getPlaces = (Button) findViewById(R.id.getPlaces);
         seekBar = (SeekBar)findViewById(R.id.seekBar);
@@ -129,10 +136,12 @@ public class RoundaboutActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                LinearLayout temp = (LinearLayout) findViewById(R.id.linearLayoutToKill);
-                if(temp != null)
+                LinearLayout temp1 = (LinearLayout) findViewById(R.id.linearLayoutToKill1);
+                LinearLayout temp2 = (LinearLayout) findViewById(R.id.linearLayoutToKill2);
+                if(temp1 != null && temp2 != null)
                 {
-                    temp.removeAllViews();
+                    temp1.removeAllViews();
+                    temp2.removeAllViews();
                 }
                 int count = mLayout.getChildCount();
                 mLayout.addView(createNewEditTextView(), count-1);

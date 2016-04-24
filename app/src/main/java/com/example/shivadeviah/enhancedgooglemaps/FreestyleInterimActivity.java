@@ -252,20 +252,13 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
 
                 try {
                     selected_places_json = new JSONObject();
-                    Log.v("LIST", selected_places.toString());
 
                     for (String s : selected_places)
                     {
-                        Log.v("LIST", s);
                         selected_places_json.put(s, new JSONObject(original_results.getString(s)));
                     }
 
-                    Log.d("SELECTED", selected_places_json.toString(4));
-                    Log.d("LENGTH", "" + selected_places_json.toString().length());
-
-
-
-                    if(selected_places_json.toString().length() > 0)
+                    if(selected_places.size() > 0)
                         output = source + "::" + destination + "::" + selected_places_json.toString();
                     else
                         output = source + "::" + destination ;
@@ -327,7 +320,14 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             Intent i = new Intent(FreestyleInterimActivity.this, FreestyleResultsActivity.class);
-            b.putString("json_dict",result);
+            JSONObject res = null;
+            try{
+               res = new JSONObject(result);
+            }
+            catch(Exception e){}
+            Log.d("LENGTH(HELLO)", result.length()+"");
+            Log.d("LENGTH(JM)", res.toString().length()+"");
+            b.putString("json_dict",res.toString());
             i.putExtras(b);
             startActivity(i);
 

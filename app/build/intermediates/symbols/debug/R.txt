@@ -903,7 +903,8 @@ int id light 0x7f0d0044
 int id line1 0x7f0d00e7
 int id line3 0x7f0d00eb
 int id linearLayout 0x7f0d00bb
-int id linearLayoutToKill 0x7f0d00b3
+int id linearLayoutToKill1 0x7f0d00b3
+int id linearLayoutToKill2 0x7f0d00b7
 int id listMode 0x7f0d000c
 int id list_item 0x7f0d0068
 int id login 0x7f0d0092
@@ -929,7 +930,7 @@ int id navigation_header_container 0x7f0d00cd
 int id never 0x7f0d003d
 int id none 0x7f0d0011
 int id normal 0x7f0d000d
-int id or 0x7f0d00b8
+int id or 0x7f0d00b5
 int id parallax 0x7f0d001c
 int id parentPanel 0x7f0d006d
 int id password 0x7f0d00b1
@@ -951,7 +952,7 @@ int id production 0x7f0d0049
 int id progress_circular 0x7f0d0007
 int id progress_horizontal 0x7f0d0008
 int id radio 0x7f0d007b
-int id radius 0x7f0d00b6
+int id radius 0x7f0d00b8
 int id registration_age 0x7f0d00c2
 int id registration_name 0x7f0d00c1
 int id right 0x7f0d0025
@@ -975,7 +976,7 @@ int id search_mag_icon 0x7f0d0088
 int id search_plate 0x7f0d0089
 int id search_src_text 0x7f0d008a
 int id search_voice_btn 0x7f0d008e
-int id seekBar 0x7f0d00b7
+int id seekBar 0x7f0d00b9
 int id select_dialog_listview 0x7f0d008f
 int id selectionDetails 0x7f0d004e
 int id settings 0x7f0d00d7
@@ -1010,7 +1011,7 @@ int id test 0x7f0d004c
 int id text 0x7f0d00ec
 int id text2 0x7f0d00ea
 int id textSpacerNoButtons 0x7f0d0074
-int id textView 0x7f0d00b9
+int id textView 0x7f0d00b6
 int id textView4 0x7f0d00c3
 int id textView5 0x7f0d00c6
 int id time 0x7f0d00e8
@@ -1026,7 +1027,6 @@ int id trips_list 0x7f0d00fc
 int id up 0x7f0d000a
 int id useLogo 0x7f0d0015
 int id user_location 0x7f0d00bc
-int id user_location_single 0x7f0d00b5
 int id view 0x7f0d00c7
 int id view_offset_helper 0x7f0d000b
 int id wide 0x7f0d0041
