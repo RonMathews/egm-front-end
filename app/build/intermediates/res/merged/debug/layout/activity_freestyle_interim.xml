@@ -13,9 +13,11 @@
     tools:context="com.example.shivadeviah.enhancedgooglemaps.FreestyleInterimActivity">
 
 
-<TextView
+
+
+    <TextView
     android:id="@+id/header_text"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="top"
     android:layout_alignParentTop="true"
@@ -24,18 +26,86 @@
     android:fontFamily="sans-serif-light"
     android:textAlignment="center" />
 
-<ListView
-    android:id="@+id/main_list_view"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:choiceMode="multipleChoiceModal"
-    android:dividerHeight="10dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:listSelector="@android:color/darker_gray"
-    android:layout_weight="1" />
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:context="com.example.shivadeviah.enhancedgooglemaps.FreestyleInterimActivity">
+
+        <TextView
+        android:id="@+id/source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_alignParentTop="true"
+        android:text="Source: "
+        android:textSize="20sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="italic"
+        android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/show_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_alignParentTop="true"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-light"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:context="com.example.shivadeviah.enhancedgooglemaps.FreestyleInterimActivity">
+
+        <TextView
+            android:id="@+id/dest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_alignParentTop="true"
+            android:text="Destination: "
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:id="@+id/show_dest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_alignParentTop="true"
+            android:text=""
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-light"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/main_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:choiceMode="multipleChoiceModal"
+        android:dividerHeight="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:listSelector="@android:color/darker_gray"
+        android:translationZ="2dp"
+        android:layout_weight="1"
+        android:divider="#a0ffffff"
+        android:drawSelectorOnTop="false"
+        android:elevation="5dp"
+        android:footerDividersEnabled="false" />
 
     <Button
         android:layout_width="match_parent"

@@ -109,8 +109,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     public void callFourthFeature(View v)
     {
-        // startActivity(new Intent(DashboardActivity.this, TravelDiaryActivity.class));
-        finish();
+        startActivity(new Intent(DashboardActivity.this, TravelDiaryActivity.class));
     }
 
     public void callLogin(MenuItem item){

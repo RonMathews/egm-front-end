@@ -42,62 +42,7 @@ public class FreestyleActivity extends Activity implements View.OnClickListener 
     //String source = null;
     // String destination = null;
 
-    public class SendData extends AsyncTask<String, String,String> {
-        @Override
-        protected String doInBackground(String... params) {
-            HttpURLConnection connection = null;
-            try {
-                Log.i("", "___________________test_________________");
-                Log.i("1hello", params[0]);
-                Log.i("2hello", params[1]);
-                Log.i("3hello", params[2]);
-                URL url = new URL(params[0]);
-                connection = (HttpURLConnection) url.openConnection();
-                connection.connect();
-                OutputStream os = connection.getOutputStream();
-                String send = params[1] + "::" +params[2];
-                os.write(send.getBytes());
-                os.flush();
-                os.close();
-                InputStream is = connection.getInputStream();
-                BufferedReader br = new BufferedReader(new InputStreamReader(is));
-                StringBuilder sb  = new StringBuilder();
-                String line;
-                while( ( line = br.readLine())  != null){
-                    sb.append(line);
-                }
-                String data = sb.toString();
-                br.close();
 
-                return data;
-            } catch (IOException e) {
-                e.printStackTrace();
-
-            } finally {
-                if(connection != null)
-                    connection.disconnect();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            Log.i("", "___________________test_________________");
-            Log.i("source", source);
-            Log.i("dest", destination);
-            Log.i("json", result);
-
-
-            Intent i = new Intent(FreestyleActivity.this, FreestyleInterimActivity.class);
-            b.putString("source", source);
-            b.putString("destination", destination);
-            b.putString("json_str",result);
-            i.putExtras(b);
-            startActivity(i);
-
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +83,70 @@ public class FreestyleActivity extends Activity implements View.OnClickListener 
 
     }
 
+    class SendData extends AsyncTask<String, String,String> {
+        @Override
+        protected String doInBackground(String... params) {
+            HttpURLConnection connection = null;
+            try {
+                Log.i("", "___________________test_________________");
+                Log.i("1hello", params[0]);
+                Log.i("2hello", params[1]);
+                Log.i("3hello", params[2]);
+                URL url = new URL(params[0]);
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("POST");
+                connection.setDoOutput(true);
+                OutputStream os = connection.getOutputStream();
+                String send = params[1] + "::" +params[2];
+                os.write(send.getBytes());
+                os.flush();
+                os.close();
+                InputStream is = connection.getInputStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(is));
+                StringBuilder sb  = new StringBuilder();
+                String line;
+                while( ( line = br.readLine())  != null){
+                    sb.append(line);
+                }
+                String data = sb.toString();
+                br.close();
+
+                return data;
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            } finally {
+                if(connection != null)
+                    connection.disconnect();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            if(result == null)
+            {
+                Toast.makeText(FreestyleActivity.this, "Sorry! We couldn't find anything for you. Please change/edit your input and try again.", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            Log.i("", "___________________test_________________");
+            Log.i("source", source);
+            Log.i("dest", destination);
+            Log.i("json", result == null? "Nothing" : result);
+
+
+            Intent i = new Intent(FreestyleActivity.this, FreestyleInterimActivity.class);
+            b.putString("source", source);
+            b.putString("destination", destination);
+            b.putString("json_str", result);
+            i.putExtras(b);
+            startActivity(i);
+
+        }
+    }
 
 
     // And the corresponding Adapter

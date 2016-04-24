@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.util.SparseBooleanArray;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,6 +31,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 /**
  * Created by ksameersrk on 5/3/16.
@@ -65,7 +68,14 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
     private ArrayAdapter<String> listAdapter;
     private String my_sel_items;
     private ArrayList<String> selected_places;
+    private JSONObject selected_places_json = null;
+    private JSONObject original_results = null;
     private ArrayList<Integer> selectedIds;
+
+    /*JSONObject obj = new JSONObject();
+                obj.put("op", 1);
+                obj.put("phone", phoneNumber);
+                obj.put("password", password);*/
 
     private String source = null;
     private String destination = null;
@@ -73,7 +83,46 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
     Button click;
     Bundle b = new Bundle();
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_anonymous, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+
+        switch (item.getItemId()) {
+            case R.id.action_login:
+                intent = new Intent(FreestyleInterimActivity.this, LoginActivity.class);
+
+                startActivity(intent);
+                return true;
+
+            case R.id.action_help:
+                // TODO
+
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void callLogin(MenuItem item){
+        if(!DashboardActivity.isLoggedIn)
+        {
+            startActivity(new Intent(FreestyleInterimActivity.this, LoginActivity.class));
+        }
+        else
+        {
+            startActivity(new Intent(FreestyleInterimActivity.this, DisplayProfileActivity.class));
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -81,14 +130,24 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
         setContentView(R.layout.activity_freestyle_interim);
 
         //set header
-        final TextView t = (TextView) findViewById(R.id.header_text);
+        final TextView t1 = (TextView) findViewById(R.id.show_source);
+        final TextView t2 = (TextView) findViewById(R.id.show_dest);
         Bundle bundle = getIntent().getExtras();
         source = bundle.getString("source");
         destination = bundle.getString("destination");
         json_str = bundle.getString("json_str");
+        try
+        {
+            original_results = new JSONObject(json_str);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
 
         // Toast.makeText(ListOfPlaces.this, json_str, Toast.LENGTH_LONG).show();
-        t.setText(source + " -> " + destination);
+        t1.setText(source);
+        t2.setText(destination);
         click = (Button) findViewById(R.id.get_route);
         click.setOnClickListener(this);
 
@@ -103,10 +162,18 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
     }
 
     public void parse(String json_str) throws JSONException {
+        // TODO - change parse function
+        JSONObject json = null;
         ArrayList<String> al = new ArrayList<String>();
-        JSONObject jsonObject = null;
         try {
-            jsonObject = new JSONObject(json_str);
+            json = new JSONObject(json_str);
+            Iterator<String> iter = json.keys();
+            while (iter.hasNext())
+            {
+                String key = iter.next();
+
+                al.add(key);
+            }
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -152,11 +219,14 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
                         }
                     }
                 }
-
-                Log.v("First : ", mainListView.getFirstVisiblePosition() + "");
-                Log.v("Last  : ", mainListView.getLastVisiblePosition() + "");
+                try {
+                    Log.v("Current", original_results.getString(my_sel_items));
+                }
+                catch(Exception e){}
+                //Log.v("First : ", mainListView.getFirstVisiblePosition() + "");
+                //Log.v("Last  : ", mainListView.getLastVisiblePosition() + "");
                 Log.v("list", selected_places.toString());
-                Log.v("list", selectedIds.toString());
+                //Log.v("list", selectedIds.toString());
             }
         });
 
@@ -176,9 +246,40 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
-                selected_places.add(0,source);
-                selected_places.add(1,destination);
-                new sendData().execute(a.toString(),selected_places.toString());
+                Log.i("SOURCE", source);
+                Log.i("DEST", destination);
+                String output = "";
+
+                try {
+                    selected_places_json = new JSONObject();
+                    Log.v("LIST", selected_places.toString());
+
+                    for (String s : selected_places)
+                    {
+                        Log.v("LIST", s);
+                        selected_places_json.put(s, new JSONObject(original_results.getString(s)));
+                    }
+
+                    Log.d("SELECTED", selected_places_json.toString(4));
+                    Log.d("LENGTH", "" + selected_places_json.toString().length());
+
+
+
+                    if(selected_places_json.toString().length() > 0)
+                        output = source + "::" + destination + "::" + selected_places_json.toString();
+                    else
+                        output = source + "::" + destination ;
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
+
+
+
+//                selected_places.add(0,source);
+//                selected_places.add(1,destination);
+//                new sendData().execute(a.toString(),selected_places.toString());
+                  new sendData().execute(a.toString(), output);
                 break;
             default:
                 break;
