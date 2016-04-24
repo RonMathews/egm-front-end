@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:padding="16dp"
+        tools:context="com.example.shivadeviah.enhancedgooglemaps.LoginActivity">
+
+        <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.5" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:orientation="vertical" >
+
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:hint="Where from?"
+                android:padding="16dp"
+                android:layout_weight="3"
+                android:layout_height="0dp"
+                android:id="@+id/auto_from"
+                android:layout_marginTop="5dp" />
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_weight="3"
+                android:layout_height="0dp"
+                android:padding="16dp"
+                android:hint="Where to?"
+                android:id="@+id/auto_to"
+                android:layout_marginTop="5dp"/>
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:text="GO!"
+            android:textSize="20sp"
+            android:id="@+id/go"
+            android:foregroundTint="#ff9c9c"
+            android:fontFamily="sans-serif-light"
+            android:translationZ="3dp"
+            android:layout_margin="0dp"
+            />
+
+       </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.5" />
+   </LinearLayout>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.shivadeviah.enhancedgooglemaps"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="23" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" /> <!-- Permissions required for GCM -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> <!-- Optional permission for App measurement to run. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_map"
+        android:label="EGM"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+
+        <!-- SPLASH AND DASHBOARD ACTIVITIES -->
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.SplashActivity"
+            android:theme="@style/SplashTheme" >
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.DashboardActivity"
+            android:label="Dashboard"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+        <!-- LOGIN AND SIGN UP ACTIVITIES -->
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.SignupActivity"
+            android:label="Sign Up"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity android:name="com.example.shivadeviah.enhancedgooglemaps.DisplayProfileActivity" />
+
+        <!-- FEATURE 1 ACTIVITIES -->
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.FreestyleActivity"
+            android:label="Freestyle"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.FreestyleInterimActivity"
+            android:label="Freestyle"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.FreestyleResultsActivity"
+            android:label="Freestyle"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+        <!-- FEATURE 2 ACTIVITIES -->
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.RoundaboutActivity"
+            android:label="Plan B"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.RoundaboutResultsActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+        <!-- FEATURE 3 ACTIVITIES -->
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.CreateGroupActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.GroupTripDashboardActivity"
+            android:label="Freestyle"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.GroupTripChatWindowActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.GroupTripViewMembersActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+        <!-- FEATURE 4 ACTIVITIES -->
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.TravelDiaryActivity"
+            android:label="Freestyle"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+        <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+            android:theme="@style/Theme.IAPTheme" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.google.android.gms.appinvite.PreviewActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppInvite.Preview" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--
+Service handling Google Sign-In user revocation. For apps that do not integrate with
+            Google Sign-In, this service will never be started.
+        -->
+        <service
+            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+
+        <provider
+            android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
+            android:authorities="com.example.shivadeviah.enhancedgooglemaps.google_measurement_service"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+
+</manifest>

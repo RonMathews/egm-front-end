@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.shivadeviah.enhancedgooglemaps.RoundaboutActivity"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linearLayoutToKill"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Specify a location and radius"
+        android:id="@+id/header_help"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="italic"
+        android:layout_gravity="center_horizontal" />
+
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/user_location_single"
+        android:hint="Enter your location"
+        android:paddingTop="30dp"
+        android:layout_marginTop="2dp"
+        android:textSize="@dimen/activity_horizontal_margin" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text=""
+        android:id="@+id/radius"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-light"
+        android:textStyle="italic"
+        android:layout_gravity="center_horizontal" />
+
+
+    <SeekBar
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar"
+        android:max="100"
+        android:progress="15"
+        android:indeterminate="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="OR"
+        android:id="@+id/or"
+        android:textSize="35sp"
+        android:fontFamily="sans-serif-light"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"/>
+    </LinearLayout>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:text="Specify multiple locations"
+    android:id="@+id/textView"
+    android:textSize="20sp"
+    android:fontFamily="sans-serif"
+    android:paddingBottom="30dp"
+    android:textStyle="italic"
+    android:layout_gravity="center_horizontal" />
+
+
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="0dp"
+    android:id="@+id/scrollRound"
+    android:transcriptMode="alwaysScroll"
+    android:layout_weight="1">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
+        >
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_location"
+            android:hint="Enter a location"
+            android:layout_marginTop="2dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="20dp"
+            android:textSize="@dimen/activity_horizontal_margin" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:layout_gravity="right" />
+
+
+    </LinearLayout>
+</ScrollView>
+
+
+
+<Button
+    android:layout_width="fill_parent"
+    android:text="Go!"
+    android:id="@+id/getPlaces"
+    android:layout_gravity="bottom"
+    android:textSize="20sp"
+    android:fontFamily="sans-serif-light"
+    android:layout_height="wrap_content"
+    android:layout_weight="0"/>
+
+
+</LinearLayout>

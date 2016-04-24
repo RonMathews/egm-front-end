@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.shivadeviah.enhancedgooglemaps">
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_map"
+        android:label="EGM"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- SPLASH AND DASHBOARD ACTIVITIES -->
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DashboardActivity"
+            android:label="Dashboard"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+        <!-- LOGIN AND SIGN UP ACTIVITIES -->
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
+        <activity
+            android:name=".SignupActivity"
+            android:label="Sign Up"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity android:name=".DisplayProfileActivity" />
+
+        <!-- FEATURE 1 ACTIVITIES -->
+        <activity
+            android:name=".FreestyleActivity"
+            android:label="Freestyle"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name=".FreestyleInterimActivity"
+            android:label="Freestyle"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name=".FreestyleResultsActivity"
+            android:label="Freestyle"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+        <!-- FEATURE 2 ACTIVITIES -->
+        <activity
+            android:name=".RoundaboutActivity"
+            android:label="Plan B"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name=".RoundaboutResultsActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+        <!-- FEATURE 3 ACTIVITIES -->
+        <activity
+            android:name=".CreateGroupActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name=".GroupTripDashboardActivity"
+            android:label="Freestyle"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name=".GroupTripChatWindowActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name=".GroupTripViewMembersActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+        <!-- FEATURE 4 ACTIVITIES -->
+        <activity
+            android:name=".TravelDiaryActivity"
+            android:label="Freestyle"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+
+    </application>
+
+</manifest>
