@@ -42,7 +42,7 @@ public class GroupTripChatWindowActivity extends AppCompatActivity {
     private EditText mMsgText;
     public static final String PREF_FILE = "PrefFile";
     private static final String PREF_USERNAME = "Username";
-
+    CustomizedAdapter mListAdapter = null;
 
 
     @Override
@@ -72,9 +72,20 @@ public class GroupTripChatWindowActivity extends AppCompatActivity {
         display();
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        // TODO: if there are new notifications
+
+    }
+
+
     public void display() {
         listView = (ListView) findViewById(R.id.chat_list_view);
-        listView.setAdapter(new CustomizedAdapter(this, messages));
+        mListAdapter = new CustomizedAdapter(this, messages);
+        listView.setAdapter(mListAdapter);
         updateFocus();
     }
 
@@ -86,31 +97,13 @@ public class GroupTripChatWindowActivity extends AppCompatActivity {
     public String getGroupName()
     {
         //// TODO: 10/4/16 get group name from database
-        return "MY_GROUP";
+        return getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString("Group Name", "");
     }
 
     public ArrayList<String> getMessages()
     {
         // TODO: 10/4/16 get messages from database for this group
         String msg[] = {
-                "+ : User_name2 : Message 1",
-                "- : User_name1 : Message 2",
-                "+ : User_name3 : Message 3",
-                "+ : User_name2 : Message 4",
-                "- : User_name1 : Message 5",
-                "+ : User_name4 : Message 6",
-                "+ : User_name2 : Message 7",
-                "- : User_name1 : Message 8",
-                "+ : User_name3 : Message 9",
-                "+ : User_name2 : Message 10",
-                "- : User_name1 : Message 11",
-                "+ : User_name4 : Message 12",
-                "+ : User_name2 : Message 13",
-                "- : User_name1 : Message 14",
-                "+ : User_name3 : Message 15",
-                "+ : User_name2 : Message 16",
-                "- : User_name1 : Message 17",
-                "+ : User_name4 : Message 18",
         };
         return new ArrayList<String>(Arrays.asList(msg));
     }
@@ -143,6 +136,7 @@ public class GroupTripChatWindowActivity extends AppCompatActivity {
 
             messages.add("- : " + getUserName() + " : " + mMsgText.getText().toString());
             mMsgText.setText("");
+            mListAdapter.notifyDataSetChanged();
             updateFocus();
 
         }
