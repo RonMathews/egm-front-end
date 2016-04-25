@@ -77,6 +77,8 @@ public class RoundaboutActivity extends AppCompatActivity {
         progress.setCancelable(false);
         location = (EditText) findViewById(R.id.user_location);
 
+
+
         TextView temp = (TextView) findViewById(R.id.textView);
         temp.setGravity(Gravity.CENTER_HORIZONTAL);
 

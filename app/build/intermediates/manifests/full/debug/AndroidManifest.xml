@@ -75,8 +75,11 @@
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.SignupActivity"
             android:label="Your Profile"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.DisplayProfileActivity"
+            android:label="Your Profile"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
-        <activity android:name="com.example.shivadeviah.enhancedgooglemaps.DisplayProfileActivity" />
 
         <!-- FEATURE 1 ACTIVITIES -->
         <activity
@@ -103,7 +106,9 @@
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.RoundaboutResultsActivity"
             android:label="Plan B"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
 
         <!-- FEATURE 3 ACTIVITIES -->
         <activity

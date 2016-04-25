@@ -65,8 +65,10 @@
         <activity
             android:name=".SignupActivity"
             android:label="Your Profile"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity android:name=".DisplayProfileActivity"
+            android:label="Your Profile"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
-        <activity android:name=".DisplayProfileActivity" />
 
         <!-- FEATURE 1 ACTIVITIES -->
         <activity
@@ -93,7 +95,9 @@
         <activity
             android:name=".RoundaboutResultsActivity"
             android:label="Plan B"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"  />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
 
         <!-- FEATURE 3 ACTIVITIES -->
         <activity

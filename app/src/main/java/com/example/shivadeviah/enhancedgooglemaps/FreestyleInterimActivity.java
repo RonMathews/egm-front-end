@@ -340,7 +340,9 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
             try{
                res = new JSONObject(result);
             }
-            catch(Exception e){}
+            catch(Exception e){
+                e.printStackTrace();
+            }
             Log.d("LENGTH(HELLO)", result.length()+"");
             Log.d("LENGTH(JM)", res.toString().length()+"");
             b.putString("json_dict",res.toString());

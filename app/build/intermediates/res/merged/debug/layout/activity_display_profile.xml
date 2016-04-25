@@ -2,41 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
     tools:context="com.example.shivadeviah.enhancedgooglemaps.DisplayProfileActivity"
     android:orientation="vertical">
 
+
     <LinearLayout
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_margin="@dimen/activity_horizontal_margin">
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
+            android:layout_weight="3"
+            android:layout_gravity="start"
             android:layout_alignParentTop="true"
-            android:text="Name: "
+            android:text="Name "
             android:textSize="20sp"
-            android:fontFamily="sans-serif"
-            android:textStyle="italic"
-            android:textAlignment="center" />
+            android:fontFamily="sans-serif" />
 
         <TextView
             android:id="@+id/show_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="4"
             android:layout_gravity="top"
+            android:text="Pappy McPile "
             android:layout_alignParentTop="true"
             android:textSize="20sp"
             android:fontFamily="sans-serif-light"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:translationZ="-5dp" />
 
     </LinearLayout>
 
@@ -44,59 +50,79 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:showDividers="middle"
+        android:divider="#ff0000">
 
         <TextView
             android:id="@+id/phone_number"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
+            android:layout_weight="3"
+            android:layout_gravity="start"
             android:layout_alignParentTop="true"
-            android:text="Phone Number: "
+            android:text="Phone Number "
             android:textSize="20sp"
-            android:fontFamily="sans-serif"
-            android:textStyle="italic"
-            android:textAlignment="center" />
+            android:fontFamily="sans-serif"/>
 
         <TextView
             android:id="@+id/show_phone_number"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="4"
             android:layout_gravity="top"
-            android:layout_alignParentTop="true"
             android:textSize="20sp"
+            android:text="1800-LICK-ME "
             android:fontFamily="sans-serif-light"
             android:textAlignment="center" />
 
     </LinearLayout>
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:showDividers="middle"
+        android:divider="#ff0000">
 
         <TextView
             android:id="@+id/age"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_alignParentTop="true"
-            android:text="Ager: "
+            android:layout_weight="3"
+            android:layout_gravity="start"
+            android:text="Join Date "
+            android:gravity="left"
             android:textSize="20sp"
-            android:fontFamily="sans-serif"
-            android:textStyle="italic"
-            android:textAlignment="center" />
+            android:fontFamily="sans-serif" />
 
         <TextView
             android:id="@+id/show_age"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="4"
             android:layout_gravity="top"
-            android:layout_alignParentTop="true"
             android:textSize="20sp"
+            android:text="69 "
             android:fontFamily="sans-serif-light"
-            android:textAlignment="center" />
+            android:textAlignment="center"/>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/sign_in_button"
+        style="?android:textAppearanceSmall"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="callSignOut"
+        android:text="Log Out"
+        android:textStyle="bold" />
 </LinearLayout>

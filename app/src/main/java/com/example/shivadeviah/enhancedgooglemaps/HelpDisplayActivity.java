@@ -50,7 +50,7 @@ public class HelpDisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help_display);
         TextView text = (TextView) findViewById(R.id.help);
-        String helpString = "EGM\nA way to enhance your travel experience\n" +
+        String helpString = "A way to enhance your travel experience\n" +
                 "Help us plan your trip by choosing either 'GO FREESTYLE' or 'PLAN B'.\n" +
                 "Travel with us by choosing either 'GROUP TRIP' or 'TRAVEL DIARY\n\n" +
                 "GO FREESTYLE\nEnter source and destination and choose the waypoints you'd like to see and we'll suggest an optimal route.\n\n" +

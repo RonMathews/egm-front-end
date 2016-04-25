@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.LoaderManager;
+import android.app.ProgressDialog;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -78,6 +79,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
     private View mProgressView;
     private View mLoginFormView;
 
+    private ProgressDialog progress=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +110,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        progress = new ProgressDialog(this);
+        progress.setMessage("Just a moment...");
+        progress.setCancelable(false);
     }
 
     private void populateAutoComplete() {
@@ -200,7 +206,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
+            //showProgress(true);
             mAuthTask = new UserLoginTask(phoneNumber, password);
             mAuthTask.execute((Void) null);
         }
@@ -314,10 +320,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
 
         private final String phoneNumber;
         private final String password;
+        private int what;
 
         UserLoginTask(String phoneNumber, String password) {
             this.phoneNumber = phoneNumber;
             this.password = password;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progress.show();
         }
 
         @Override
@@ -347,14 +360,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
                 }
                 String data = sb.toString();
                 br.close();
-                String info[] = data.trim().split(":");
+                String info[] = data.trim().split("::");
                 Log.i("info", data);
-                if(info.length == 2 && info[0].trim().equals("1"))
+
+                what = Integer.parseInt(info[0].trim());
+                if(what == 1)
                 {
                     getSharedPreferences(PREF_FILE, MODE_PRIVATE)
                             .edit()
-                            .putString(PREF_NAME, info[1].trim())
+                            .putString("Phone Number", phoneNumber)
+                            .putString("Username", info[1])
+                            .putString("Join Date", info[2])
                             .commit();
+
                     return true;
                 }
                 else
@@ -382,40 +400,45 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         @Override
         protected void onPostExecute(final Boolean success) {
             mAuthTask = null;
-            showProgress(false);
+            progress.dismiss();
 
             if (success) {
                 DashboardActivity.isLoggedIn = true;
                 Toast.makeText(LoginActivity.this, "Successfully logged in!", Toast.LENGTH_LONG).show();
 
-                //finish();
-                //SharedPreferences pref = getSharedPreferences(PREF_FILE, MODE_PRIVATE);
-                getSharedPreferences(PREF_FILE, MODE_PRIVATE)
-                        .edit()
-                        .putString(PREF_USERNAME, phoneNumber)
-                        .putString(PREF_PASSWORD, password)
-                        .commit();
-                //startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
 
             } else {
-                mPasswordView.setError(getString(R.string.login_error_incorrect_password));
-                mPasswordView.requestFocus();
+                switch(what) {
+                    case 2:
+                        Toast.makeText(LoginActivity.this, "We don't seem to have your phone number in our records. Have you signed up yet?", Toast.LENGTH_LONG).show();
+                    case 3:
+                        mPasswordView.setError(getString(R.string.login_error_incorrect_password));
+                        mPasswordView.requestFocus();
+                        break;
+                    default:
+                        Log.i("WHAT", what + "");
+                        Toast.makeText(LoginActivity.this, "You shouldn't be seeing this activity at all.", Toast.LENGTH_LONG).show();
+
+
+                }
             }
         }
 
         @Override
         protected void onCancelled() {
             mAuthTask = null;
-            showProgress(false);
+            //showProgress(false);
+            progress.dismiss();
         }
     }
 
 
     public void callSignUp(View v)
     {
-        startActivity(new Intent(LoginActivity.this, SignupActivity.class));
         finish();
+        startActivity(new Intent(LoginActivity.this, SignupActivity.class));
+
     }
 }
 

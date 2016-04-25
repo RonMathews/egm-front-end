@@ -4,6 +4,7 @@ package com.example.shivadeviah.enhancedgooglemaps;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -34,6 +35,12 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,10 +55,16 @@ public class SignupActivity extends AppCompatActivity implements LoaderCallbacks
      * Id to identity READ_CONTACTS permission request.
      */
     private static final int REQUEST_READ_CONTACTS = 0;
+    public static final String PREF_FILE = "PrefFile";
+    private static final String PREF_USERNAME = "username";
+    private static final String PREF_NAME = "name";
+    private static final String PREF_PASSWORD = "password";
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
+    private ProgressDialog progress=null;
+
     private UserLoginTask mAuthTask = null;
 
     // UI references.
@@ -74,10 +87,14 @@ public class SignupActivity extends AppCompatActivity implements LoaderCallbacks
         mPhoneNumberView = (AutoCompleteTextView) findViewById(R.id.phone_number);
         populateAutoComplete();
 
+        progress = new ProgressDialog(this);
+        progress.setMessage("Just a moment...");
+        progress.setCancelable(false);
+
         mPasswordView1 = (EditText) findViewById(R.id.password1);
         mPasswordView2 = (EditText) findViewById(R.id.password2);
-        mUserAge = (EditText) findViewById(R.id.registration_name);
-        mUserName = (EditText) findViewById(R.id.registration_age);
+        mUserName = (EditText) findViewById(R.id.registration_name);
+        mUserAge = (EditText) findViewById(R.id.registration_age);
         mPasswordView2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -208,7 +225,7 @@ public class SignupActivity extends AppCompatActivity implements LoaderCallbacks
         if(! arePasswordsSame(password1, password2))
         {
             Toast.makeText(SignupActivity.this, password1+":"+password2, Toast.LENGTH_LONG).show();
-            mPasswordView2.setError("Passwords are not matching");
+            mPasswordView2.setError("Passwords do not match");
             cancel = true;
             focusView = mPasswordView2;
         }
@@ -220,8 +237,9 @@ public class SignupActivity extends AppCompatActivity implements LoaderCallbacks
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(phone_number, password1);
+            //TODO
+            //showProgress(true);
+            mAuthTask = new UserLoginTask(name, phone_number, password1, age);
             mAuthTask.execute((Void) null);
         }
     }
@@ -336,39 +354,87 @@ public class SignupActivity extends AppCompatActivity implements LoaderCallbacks
      * the user.
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
+        private final String name;
         private final String phoneNumber;
         private final String password;
+        private final String age;
+        private int what;
 
-        UserLoginTask(String phoneNumber, String password) {
+        UserLoginTask(String name, String phoneNumber, String password, String age) {
+            this.name = name;
             this.phoneNumber = phoneNumber;
             this.password = password;
+            this.age = age;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progress.show();
         }
 
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
 
-            try {
+            /*try {
                 // Simulate network access.
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 return false;
             }
-            /*
+
                 We have phoneNumber
                         password
                         name
                         age
             */
+            HttpURLConnection connection = null;
             try{
                 JSONObject obj = new JSONObject();
                 obj.put("op", 0);
                 obj.put("phone", phoneNumber);
                 obj.put("name", name);
                 obj.put("password", password);
-                obj.put("age", age);
+                //obj.put("age", age);
                 // TODO: 20/4/16 Send data
+
+                URL url = new URL("http://192.168.1.117:8000/login");
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("POST");
+                connection.setDoOutput(true);
+                OutputStream os = connection.getOutputStream();
+                String send = obj.toString();
+                os.write(send.getBytes());
+                os.flush();
+                os.close();
+                InputStream is = connection.getInputStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(is));
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line);
+                }
+                String data = sb.toString();
+                br.close();
+
+                String info = data.trim();
+                Log.i("info", data);
+                what = 0;
+                if(info.equals("User created"))
+                {
+                    getSharedPreferences(PREF_FILE, MODE_PRIVATE)
+                            .edit()
+                            .putString(PREF_NAME, name)
+                            .commit();
+                    return true;
+                }
+                else if(info.equals("User Already Exists"))
+                {
+                    what = 1;
+                    return false;
+                }
+
 
             }
             catch (Exception e)
@@ -383,20 +449,29 @@ public class SignupActivity extends AppCompatActivity implements LoaderCallbacks
         @Override
         protected void onPostExecute(final Boolean success) {
             mAuthTask = null;
-            showProgress(false);
-
+            //TODO showProgress(false);
+            progress.dismiss();
             if (success) {
+
                 finish();
-            } else {
-                mPasswordView1.setError(getString(R.string.registration_error_incorrect_password));
-                mPasswordView1.requestFocus();
+                Toast.makeText(SignupActivity.this, "Successfully signed up! Log in with your info to get started.", Toast.LENGTH_LONG).show();
+
+            }
+            else if(what == 1)
+            {
+                Toast.makeText(SignupActivity.this, "It seems you've already signed up. Try logging in?", Toast.LENGTH_LONG).show();
+            }
+            else
+            {
+                Toast.makeText(SignupActivity.this, "Sorry, we had a little trouble processing your request. Please try again.", Toast.LENGTH_LONG).show();
             }
         }
 
         @Override
         protected void onCancelled() {
+            progress.dismiss();
             mAuthTask = null;
-            showProgress(false);
+            //TODO showProgress(false);
         }
     }
 
