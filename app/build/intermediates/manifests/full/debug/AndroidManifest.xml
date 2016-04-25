@@ -49,7 +49,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <!-- SPLASH AND DASHBOARD ACTIVITIES -->
+        <!-- BASIC ACTIVITIES -->
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.SplashActivity"
             android:theme="@style/SplashTheme" >
@@ -64,7 +64,9 @@
             android:name="com.example.shivadeviah.enhancedgooglemaps.DashboardActivity"
             android:label="Dashboard"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
-
+        <activity
+            android:name="com.example.shivadeviah.enhancedgooglemaps.HelpDisplayActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <!-- LOGIN AND SIGN UP ACTIVITIES -->
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.LoginActivity"
@@ -73,22 +75,22 @@
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.SignupActivity"
             android:label="Sign Up"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name="com.example.shivadeviah.enhancedgooglemaps.DisplayProfileActivity" />
 
         <!-- FEATURE 1 ACTIVITIES -->
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.FreestyleActivity"
             android:label="Freestyle"
-            android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.FreestyleInterimActivity"
             android:label="Freestyle"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.FreestyleResultsActivity"
             android:label="Freestyle"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <!-- FEATURE 2 ACTIVITIES -->
         <activity
@@ -96,16 +98,18 @@
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:label="Plan B"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.RoundaboutResultsActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:label="Plan B"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <!-- FEATURE 3 ACTIVITIES -->
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.CreateGroupActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:label="Form a Group"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.GroupTripDashboardActivity"
             android:label="Freestyle"

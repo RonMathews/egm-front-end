@@ -61,13 +61,15 @@ public class CreateGroupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_group);
-
         //set up form
         mGroupName = (EditText) findViewById(R.id.create_group_name);
         mDestination = (AutoCompleteTextView) findViewById(R.id.create_group_destination);
         mDestination.setAdapter(new AutoCompleteAdapter(this));
         contacts = getContactListFromPhone();
         display();
+
+
+        Toast.makeText(CreateGroupActivity.this, "Almost there! Enter your group's details and add members to get started. (If you made a mistake adding members, you'll have to start over.)", Toast.LENGTH_SHORT).show();
 
     }
 

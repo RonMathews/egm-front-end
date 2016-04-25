@@ -58,13 +58,24 @@ public class DashboardActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.action_login:
-                intent = new Intent(DashboardActivity.this, LoginActivity.class);
+                if(isLoggedIn)
+                {
+                    intent = new Intent(DashboardActivity.this, LoginActivity.class);
+
+                    startActivity(intent);
+
+
+                }
+                else
+                {
+                    intent = new Intent(DashboardActivity.this, DisplayProfileActivity.class);
+                    startActivity(intent);
+                }
+                return true;
+            case R.id.action_help:
+                intent = new Intent(DashboardActivity.this, HelpDisplayActivity.class);
 
                 startActivity(intent);
-                return true;
-
-            case R.id.action_help:
-                // TODO
 
                 return true;
 

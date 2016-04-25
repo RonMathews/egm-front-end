@@ -50,9 +50,12 @@ tools:context="com.example.shivadeviah.enhancedgooglemaps.CreateGroupActivity">
     android:id="@+id/create_group_contact_label"
     android:paddingTop="20dp"
     android:paddingBottom="20dp"
-    android:text="Add members"
-    android:textSize="25dp"
-    android:textStyle="bold"
+    android:layout_gravity="left"
+    android:gravity="left"
+    android:text="Select members from your contacts list to get started."
+    android:textSize="20dp"
+    android:textStyle="italic"
+    android:fontFamily="sans-serif-light"
     android:textAlignment="center"/>
 
 <ListView
@@ -69,7 +72,7 @@ tools:context="com.example.shivadeviah.enhancedgooglemaps.CreateGroupActivity">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
-    android:text="Create Group"
+    android:text="Continue"
     android:textStyle="bold"
     android:onClick="createGroupNow"/>
 

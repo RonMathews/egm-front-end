@@ -359,6 +359,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
                 }
                 else
                 {
+
                     return false;
                 }
             } catch (MalformedURLException e) {

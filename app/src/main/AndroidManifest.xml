@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.shivadeviah.enhancedgooglemaps">
-
-
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -15,24 +12,22 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <permission
         android:name="com.example.shivadeviah.enhancedgooglemaps.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.example.shivadeviah.enhancedgooglemaps.permission..MAPS_RECEIVE" />
-
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true"/>
-
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -40,11 +35,11 @@
         android:label="EGM"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <meta-data android:name="com.google.android.geo.API_KEY"
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <!-- SPLASH AND DASHBOARD ACTIVITIES -->
+        <!-- BASIC ACTIVITIES -->
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -59,48 +54,52 @@
             android:name=".DashboardActivity"
             android:label="Dashboard"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
-
-        <!-- LOGIN AND SIGN UP ACTIVITIES -->
+        <activity
+            android:name=".HelpDisplayActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog"></activity>
+        <!-- PROFILE BASED ACTIVITIES -->
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
             android:name=".SignupActivity"
-            android:label="Sign Up"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:label="Your Profile"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
         <activity android:name=".DisplayProfileActivity" />
 
         <!-- FEATURE 1 ACTIVITIES -->
         <activity
             android:name=".FreestyleActivity"
             android:label="Freestyle"
-            android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"  />
         <activity
             android:name=".FreestyleInterimActivity"
             android:label="Freestyle"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"  />
         <activity
             android:name=".FreestyleResultsActivity"
             android:label="Freestyle"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"  />
 
         <!-- FEATURE 2 ACTIVITIES -->
         <activity
             android:name=".RoundaboutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
             android:label="Plan B"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
-            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"
-            android:configChanges="keyboard|keyboardHidden|orientation"/>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".RoundaboutResultsActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:label="Plan B"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"  />
 
         <!-- FEATURE 3 ACTIVITIES -->
         <activity
             android:name=".CreateGroupActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:label="Form a Group"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"  />
         <activity
             android:name=".GroupTripDashboardActivity"
             android:label="Freestyle"
@@ -117,7 +116,6 @@
             android:name=".TravelDiaryActivity"
             android:label="Freestyle"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
-
 
     </application>
 
