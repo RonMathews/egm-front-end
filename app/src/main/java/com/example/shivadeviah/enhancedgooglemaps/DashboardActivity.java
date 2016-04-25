@@ -40,7 +40,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     public boolean isUserPartOfGroup()
     {
-        getSharedPreferences("")
+        return !getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString("Group Name", "").equals("");
     }
 
 
