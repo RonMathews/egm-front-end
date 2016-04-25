@@ -34,14 +34,14 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
  * service is finished, it calls {@code completeWakefulIntent()} to release the
  * wake lock.
  */
-public class GcmIntentService extends IntentService {
+public class GCMIntentService extends IntentService {
 
     public static final int NOTIFICATION_ID = 1;
     private NotificationManager mNotificationManager;
     NotificationCompat.Builder builder;
 
-    public GcmIntentService() {
-        super("GcmIntentService");
+    public GCMIntentService() {
+        super("GCMIntentService");
     }
     public static final String TAG = "GCM Demo";
 
@@ -89,7 +89,7 @@ public class GcmIntentService extends IntentService {
             }
         }
         // Release the wake lock provided by the WakefulBroadcastReceiver.
-        GcmBroadcastReceiver.completeWakefulIntent(intent);
+        com.example.shivadeviah.enhancedgooglemaps.GCMBroadcastReceiver.completeWakefulIntent(intent);
     }
 
     // Put the message into a notification and post it.

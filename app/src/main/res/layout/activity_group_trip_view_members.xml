@@ -17,9 +17,8 @@
         android:layout_height="wrap_content"
         android:text="GROUP MEMBERS"
         android:id="@+id/member_group_name"
-        android:textSize="28sp"
-        android:fontFamily="sans-serif-light"
-        android:layout_gravity="center_horizontal" />
+        android:textSize="25sp"
+        android:fontFamily="sans-serif-light" />
 
     <ListView
         android:id="@+id/member_list_view"

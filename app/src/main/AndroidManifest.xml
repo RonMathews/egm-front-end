@@ -47,7 +47,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_map"
-        android:label="EGM Sweetu"
+        android:label="EGM"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
@@ -80,7 +80,7 @@
         <activity
             android:name=".SignupActivity"
             android:label="Your Profile"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"  />
         <activity android:name=".DisplayProfileActivity"
             android:label="Your Profile"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
@@ -122,26 +122,26 @@
         <activity
             android:name=".GroupTripDashboardActivity"
             android:label="Freestyle"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".GroupTripChatWindowActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".GroupTripViewMembersActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <!-- FEATURE 4 ACTIVITIES -->
         <activity
             android:name=".TravelDiaryActivity"
             android:label="Freestyle"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <receiver
-            android:name="com.example.shivadeviah.enhancedgooglemaps.GcmBroadcastReceiver"
+            android:name="com.example.shivadeviah.enhancedgooglemaps.GCMBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -149,8 +149,7 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".GcmIntentService" />
-
+        <service android:name=".GCMIntentService" />
     </application>
 
 </manifest>

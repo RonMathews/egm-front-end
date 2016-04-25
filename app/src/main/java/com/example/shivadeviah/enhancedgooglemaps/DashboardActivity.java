@@ -75,8 +75,24 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        context = getApplicationContext();
+
+        // Check device for Play Services APK. If check succeeds, proceed with GCM registration.
+        if (checkPlayServices()) {
+
+            gcm = GoogleCloudMessaging.getInstance(this);
+            regid = getRegistrationId(context);
+            Log.i("ANAPLAX", regid + "");
+
+            if (regid.isEmpty()) {
+                registerInBackground();
+            }
+
+        } else {
+            Log.i(TAG, "No valid Google Play Services APK found.");
+        }
         if (!getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString("Phone Number", "").equals(""))
-                isLoggedIn = true;
+            isLoggedIn = true;
 
     }
 
