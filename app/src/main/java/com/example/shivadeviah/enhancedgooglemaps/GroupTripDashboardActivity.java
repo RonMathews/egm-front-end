@@ -68,7 +68,7 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
         t1.setText(gName);
         t2.setText(gDest);
 
-        getData();
+
     }
 
 
@@ -76,7 +76,7 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
 
     public void getData()
     {
-        new Timer().schedule(new TimerTask() {
+        new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 // this code will be executed after 2 seconds
@@ -110,7 +110,8 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
                     e.printStackTrace();
                 }
             }
-        }, 2000);
+        }, 1000,1000);
+
 
     }
 
@@ -127,6 +128,7 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        getData();
 
 
 
@@ -281,6 +283,7 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
                 }
             }
             catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
