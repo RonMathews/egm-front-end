@@ -388,12 +388,12 @@
         "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-xhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
-        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_on_2_mono_dark.png",
-        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-xhdpi/ic_media_route_on_2_mono_dark.png"
-    },
-    {
         "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_go_search_api_mtrl_alpha.png",
         "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-xhdpi-v4/abc_ic_go_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_on_2_mono_dark.png",
+        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-xhdpi/ic_media_route_on_2_mono_dark.png"
     },
     {
         "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_half_black_16dp.png",

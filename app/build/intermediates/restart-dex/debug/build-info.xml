@@ -4,39 +4,29 @@
     api-level="22"
     density="xxhdpi"
     format="7"
-    timestamp="5473250993314" >
+    timestamp="6470970973713" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="558" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="432" />
     <task
         name="verifier"
-        duration="0" />
+        duration="121" />
 
     <artifact
-        location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
-        type="DEX" />
+        location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/outputs/apk/app-debug.apk"
+        type="MAIN" />
 
-    <build timestamp="5190948962991" >
+    <build timestamp="6470970973713" >
         <artifact
             location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
-    </build>
-    <build timestamp="5402364726456" >
-        <artifact
-            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/resources-debug.ap_"
-            type="RESOURCES" />
-    </build>
-    <build timestamp="5473250993314" >
-        <artifact
-            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
-            type="DEX" />
     </build>
 
 </instant-run>

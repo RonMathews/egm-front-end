@@ -386,6 +386,8 @@
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
     <string name="decline">Decline</string>
+    <string name="gcm_defaultSenderId" translatable="false">35755771265</string>
+    <string name="google_app_id" translatable="false">1:35755771265:android:7ff8c39fec102f78</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
      AIzaSyAThzrF0gsUq9a7TOQelZLPYM6h3Hw1ric
     </string>

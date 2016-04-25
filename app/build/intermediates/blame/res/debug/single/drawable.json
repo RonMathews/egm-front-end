@@ -196,12 +196,12 @@
         "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable/abc_dialog_material_background_dark.xml"
     },
     {
-        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/drawable/map.jpg",
-        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/drawable/map.jpg"
-    },
-    {
         "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
         "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable/abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/drawable/map.jpg",
+        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/drawable/map.jpg"
     },
     {
         "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
