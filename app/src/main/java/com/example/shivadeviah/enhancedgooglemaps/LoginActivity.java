@@ -54,7 +54,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
     public static final String PREF_FILE = "PrefFile";
     private static final String PREF_USERNAME = "username";
     private static final String PREF_NAME = "name";
-    private static final String PREF_PASSWORD = "password";/**
+    private static final String PREF_PASSWORD = "password";
+     /**
      * Id to identity READ_CONTACTS permission request.
      */
     private static final int REQUEST_READ_CONTACTS = 0;

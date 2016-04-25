@@ -263,7 +263,7 @@ public class FreestyleResultsActivity extends FragmentActivity {
         if ( (getIntent().getStringExtra("json_dict") != null)){
             json_dict = bundle.getString("json_dict");
         }
-        Toast.makeText(FreestyleResultsActivity.this, json_dict, Toast.LENGTH_LONG).show();
+        //Toast.makeText(FreestyleResultsActivity.this, json_dict, Toast.LENGTH_LONG).show();
         // Initializing
         markerPoints = new ArrayList<LatLng>();
         locationPoints = new ArrayList<LatLng>();
@@ -345,26 +345,19 @@ public class FreestyleResultsActivity extends FragmentActivity {
                 */
                 JSONObject jsonBound = ((JSONObject)((JSONObject)jRoutes.get(0)).getJSONArray("routes").get(0)).getJSONObject("bounds");
 
-
+                Log.v("WORST1", "WRST");
+                Log.v("WORST2", jsonBound.toString());
                 JSONObject jsonSouthWest = jsonBound.getJSONObject("southwest");
                 JSONObject jsonNorthEast = jsonBound.getJSONObject("northeast");
                 boundSouthWest = new LatLng(jsonSouthWest.getDouble("lat"),jsonSouthWest.getDouble("lng"));
                 boundNorthEast = new LatLng(jsonNorthEast.getDouble("lat"),jsonNorthEast.getDouble("lng"));
 
-                map.addMarker(new MarkerOptions()
-                        .position(boundSouthWest)
-                        .title("Source")
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-                map.addMarker(new MarkerOptions()
-                        .position(boundNorthEast)
-                        .title("DESTINATION")
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-
-                //Log.i
+                Log.v("WORST3", "WRST");
                 DirectionJSONparser parser = new DirectionJSONparser();
 
                 // Starts parsing data
                 routes = parser.parse(jObject);
+                Log.v("WORST4", "WRST");
             }catch(Exception e){
                 e.printStackTrace();
                 Log.i("EOROROROROR","ERRORORORO-------");
@@ -375,6 +368,15 @@ public class FreestyleResultsActivity extends FragmentActivity {
         // Executes in UI thread, after the parsing process
         @Override
         protected void onPostExecute(List<List<HashMap<String, String>>> result) {
+
+            map.addMarker(new MarkerOptions()
+                    .position(boundSouthWest)
+                    .title("Source")
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+            map.addMarker(new MarkerOptions()
+                    .position(boundNorthEast)
+                    .title("Destination")
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
 
             ArrayList<LatLng> points = null;
             PolylineOptions lineOptions = null;
@@ -400,7 +402,7 @@ public class FreestyleResultsActivity extends FragmentActivity {
 
                 // Adding all the points in the route to LineOptions
                 lineOptions.addAll(points);
-                lineOptions.width(2);
+                lineOptions.width(5);
                 lineOptions.color(Color.RED);
             }
 
@@ -435,6 +437,7 @@ public class FreestyleResultsActivity extends FragmentActivity {
             try {
 
                 jRoutes = jsonObject.getJSONArray("route");
+                jRoutes = ((JSONObject)jRoutes.get(0)).getJSONArray("routes");
                 // jRoutes = (JSONArray)jsonObject;
 
                 /** Traversing all routes */

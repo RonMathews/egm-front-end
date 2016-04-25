@@ -1,4 +1,2 @@
-CHANGED,/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/shivadeviah/enhancedgooglemaps/FreestyleResultsActivity$DirectionJSONparser$override.class
-CHANGED,/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/shivadeviah/enhancedgooglemaps/FreestyleResultsActivity$override.class
-CHANGED,/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/shivadeviah/enhancedgooglemaps/FreestyleResultsActivity$ParserTask$override.class
+CHANGED,/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/shivadeviah/enhancedgooglemaps/RoundaboutResultsActivity$override.class
 CHANGED,/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class

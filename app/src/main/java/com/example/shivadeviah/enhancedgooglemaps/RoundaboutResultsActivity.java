@@ -15,6 +15,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -263,14 +264,17 @@ public class RoundaboutResultsActivity extends FragmentActivity implements OnMap
             LatLng currentPos = new LatLng(currentLat.get(0), currentLon.get(0));
             for (i = 0; i < currentLat.size(); i++) {
                 currentPos = new LatLng(currentLat.get(i), currentLon.get(i));
-                mMap.addMarker(new MarkerOptions().position(currentPos).title("User" + i));
+                mMap.addMarker(new MarkerOptions().position(currentPos).title("User " + (i+1)));
                 //mMap.moveCamera(CameraUpdateFactory.newLatLng(currentPos));
             }
             //LatLng pos = new LatLng(lat, lon);
             //mMap.addMarker(new MarkerOptions().position(currentPos).title("User"));
             for (i = 0; i < lat.size(); i++) {
                 LatLng pos = new LatLng(lat.get(i), lon.get(i));
-                mMap.addMarker(new MarkerOptions().position(pos).title(des.get(i).get(0) + "\nRating: " + des.get(i).get(1)));
+                mMap.addMarker(new MarkerOptions()
+                        .position(pos)
+                        .title(des.get(i).get(0) + "\nRating: " + des.get(i).get(1))
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
             }
 
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentPos, zoomLevel));//

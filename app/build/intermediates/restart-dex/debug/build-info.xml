@@ -4,31 +4,31 @@
     api-level="22"
     density="xxhdpi"
     format="7"
-    timestamp="7465047073652" >
+    timestamp="15404880042191" >
 
     <task
         name="javac"
-        duration="359" />
+        duration="195" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="26" />
+        duration="16" />
     <task
         name="verifier"
-        duration="2" />
+        duration="1" />
 
     <artifact
         location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
         type="DEX" />
 
-    <build timestamp="7010270875802" >
+    <build timestamp="14172093670233" >
         <artifact
             location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="7465047073652" >
+    <build timestamp="15404880042191" >
         <artifact
             location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
             type="DEX" />

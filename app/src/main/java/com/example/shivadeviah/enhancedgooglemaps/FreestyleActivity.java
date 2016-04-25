@@ -1,6 +1,7 @@
 package com.example.shivadeviah.enhancedgooglemaps;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
@@ -37,6 +38,7 @@ public class FreestyleActivity extends Activity implements View.OnClickListener 
     Bundle b = new Bundle();
     private String source;
     private String destination;
+    private ProgressDialog progress=null;
 
     // String data=null;
     //String source = null;
@@ -54,6 +56,10 @@ public class FreestyleActivity extends Activity implements View.OnClickListener 
         editTextAddress.setAdapter(new AutoCompleteAdapter(this));
         AutoCompleteTextView editTextAddress1 = (AutoCompleteTextView)findViewById(R.id.auto_to);
         editTextAddress1.setAdapter(new AutoCompleteAdapter(this));
+
+        progress = new ProgressDialog(this);
+        progress.setMessage("Just a moment...");
+        progress.setCancelable(false);
 
         click = (Button) findViewById(R.id.go);
 
@@ -84,6 +90,13 @@ public class FreestyleActivity extends Activity implements View.OnClickListener 
     }
 
     class SendData extends AsyncTask<String, String,String> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progress.show();
+        }
+
         @Override
         protected String doInBackground(String... params) {
             HttpURLConnection connection = null;
@@ -125,7 +138,7 @@ public class FreestyleActivity extends Activity implements View.OnClickListener 
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-
+            progress.dismiss();
             if(result == null)
             {
                 Toast.makeText(FreestyleActivity.this, "Sorry! We couldn't find anything for you. Please change/edit your input and try again.", Toast.LENGTH_LONG).show();
@@ -159,12 +172,16 @@ public class FreestyleActivity extends Activity implements View.OnClickListener 
         public AutoCompleteAdapter(final Context context) {
             super(context, -1);
             mInflater = LayoutInflater.from(context);
+            //mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             mGeocoder = new Geocoder(context);
         }
 
         @Override
         public View getView(final int position, final View convertView, final ViewGroup parent) {
-            final TextView tv;
+
+            //TextView tv = (TextView) mInflater.inflate(android.R.layout.simple_dropdown_item_1line, parent, false);
+
+            TextView tv;
             if (convertView != null) {
                 tv = (TextView) convertView;
             } else {
@@ -177,6 +194,7 @@ public class FreestyleActivity extends Activity implements View.OnClickListener 
 
         private String createFormattedAddressFromAddress(final Address address) {
             mSb.setLength(0);
+            Log.i("SHARON AUTOCOMPLETE1", address.toString());
             final int addressLineSize = address.getMaxAddressLineIndex();
             for (int i = 0; i < addressLineSize; i++) {
                 mSb.append(address.getAddressLine(i));
@@ -184,6 +202,7 @@ public class FreestyleActivity extends Activity implements View.OnClickListener 
                     mSb.append(", ");
                 }
             }
+            Log.i("SHARON AUTOCOMPLETE2", mSb.toString());
             return mSb.toString();
         }
 
@@ -226,7 +245,22 @@ public class FreestyleActivity extends Activity implements View.OnClickListener 
 
                 @Override
                 public CharSequence convertResultToString(final Object resultValue) {
-                    return resultValue == null ? "" : ((Address) resultValue).getAddressLine(0);
+                    if(resultValue == null){
+                        return "";
+                    }
+                    else {
+                        Address addr = (Address) resultValue;
+                        int size = addr.getMaxAddressLineIndex();
+                        String text = "";
+                        for (int i = 0; i < size; i++) {
+                            text += (addr.getAddressLine(i));
+                            if (i != size - 1) {
+                                text += ", ";
+                            }
+                        }
+                        // return resultValue == null ? "" : ((Address) resultValue).getAddressLine(0);
+                        return text;
+                    }
                 }
             };
             return myFilter;

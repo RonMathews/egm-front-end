@@ -1,6 +1,7 @@
 package com.example.shivadeviah.enhancedgooglemaps;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -40,6 +41,8 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
     /*
     There is bug if the list is greater then the height of the view
      */
+    private ProgressDialog progress=null;
+
     String[] places;/*= {
             "Bekal Fort",
             "Bengaluru Palace",
@@ -136,6 +139,9 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
         source = bundle.getString("source");
         destination = bundle.getString("destination");
         json_str = bundle.getString("json_str");
+        progress = new ProgressDialog(this);
+        progress.setMessage("Just a moment...");
+        progress.setCancelable(false);
         try
         {
             original_results = new JSONObject(json_str);
@@ -248,18 +254,21 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
                 }
                 Log.i("SOURCE", source);
                 Log.i("DEST", destination);
+                Log.i("SEL PLACES SIZE", selected_places == null? "EMPTY" : selected_places.size()+"");
                 String output = "";
 
                 try {
                     selected_places_json = new JSONObject();
 
-                    for (String s : selected_places)
+                    if(selected_places != null && selected_places.size() > 0)
                     {
-                        selected_places_json.put(s, new JSONObject(original_results.getString(s)));
-                    }
+                        for (String s : selected_places)
+                        {
+                            selected_places_json.put(s, new JSONObject(original_results.getString(s)));
+                        }
 
-                    if(selected_places.size() > 0)
                         output = source + "::" + destination + "::" + selected_places_json.toString();
+                    }
                     else
                         output = source + "::" + destination ;
                 }
@@ -282,6 +291,12 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
     }
 
     class sendData extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progress.show();
+        }
+
         @Override
         protected String doInBackground(String... params) {
             HttpURLConnection connection = null;
@@ -319,6 +334,7 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
+            progress.dismiss();
             Intent i = new Intent(FreestyleInterimActivity.this, FreestyleResultsActivity.class);
             JSONObject res = null;
             try{

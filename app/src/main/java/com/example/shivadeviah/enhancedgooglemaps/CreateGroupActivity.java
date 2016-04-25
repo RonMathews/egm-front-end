@@ -239,12 +239,16 @@ public class CreateGroupActivity extends AppCompatActivity {
         public AutoCompleteAdapter(final Context context) {
             super(context, -1);
             mInflater = LayoutInflater.from(context);
+            //mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             mGeocoder = new Geocoder(context);
         }
 
         @Override
         public View getView(final int position, final View convertView, final ViewGroup parent) {
-            final TextView tv;
+
+            //TextView tv = (TextView) mInflater.inflate(android.R.layout.simple_dropdown_item_1line, parent, false);
+
+            TextView tv;
             if (convertView != null) {
                 tv = (TextView) convertView;
             } else {
@@ -257,6 +261,7 @@ public class CreateGroupActivity extends AppCompatActivity {
 
         private String createFormattedAddressFromAddress(final Address address) {
             mSb.setLength(0);
+            Log.i("SHARON AUTOCOMPLETE1", address.toString());
             final int addressLineSize = address.getMaxAddressLineIndex();
             for (int i = 0; i < addressLineSize; i++) {
                 mSb.append(address.getAddressLine(i));
@@ -264,8 +269,10 @@ public class CreateGroupActivity extends AppCompatActivity {
                     mSb.append(", ");
                 }
             }
+            Log.i("SHARON AUTOCOMPLETE2", mSb.toString());
             return mSb.toString();
         }
+
         @Override
         public Filter getFilter() {
             Filter myFilter = new Filter() {
@@ -305,12 +312,26 @@ public class CreateGroupActivity extends AppCompatActivity {
 
                 @Override
                 public CharSequence convertResultToString(final Object resultValue) {
-                    return resultValue == null ? "" : ((Address) resultValue).getAddressLine(0);
+                    if(resultValue == null){
+                        return "";
+                    }
+                    else {
+                        Address addr = (Address) resultValue;
+                        int size = addr.getMaxAddressLineIndex();
+                        String text = "";
+                        for (int i = 0; i < size; i++) {
+                            text += (addr.getAddressLine(i));
+                            if (i != size - 1) {
+                                text += ", ";
+                            }
+                        }
+                        // return resultValue == null ? "" : ((Address) resultValue).getAddressLine(0);
+                        return text;
+                    }
                 }
             };
             return myFilter;
         }
-
     }
 
     class sendData extends AsyncTask<String, String, String> {
