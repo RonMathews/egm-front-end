@@ -67,15 +67,15 @@
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.HelpDisplayActivity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
-        <!-- LOGIN AND SIGN UP ACTIVITIES -->
+        <!-- PROFILE BASED ACTIVITIES -->
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
             android:name="com.example.shivadeviah.enhancedgooglemaps.SignupActivity"
-            android:label="Sign Up"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:label="Your Profile"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity android:name="com.example.shivadeviah.enhancedgooglemaps.DisplayProfileActivity" />
 
         <!-- FEATURE 1 ACTIVITIES -->

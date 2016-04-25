@@ -248,11 +248,11 @@ ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/And
 	android:name
 		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:62:13-42
 activity#com.example.shivadeviah.enhancedgooglemaps.SignupActivity
-ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:65:9-68:75
+ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:65:9-68:69
 	android:label
-		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:67:13-36
+		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:67:13-41
 	android:theme
-		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:68:13-72
+		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:68:13-67
 	android:name
 		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:66:13-43
 activity#com.example.shivadeviah.enhancedgooglemaps.DisplayProfileActivity
