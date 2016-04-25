@@ -35,8 +35,8 @@ public class GroupTripViewMembersActivity extends AppCompatActivity {
     ArrayList<String> contacts;
     private TextView mGroupName;
     public static final String PREF_FILE = "PrefFile";
-    private static final String PREF_USERNAME = "username";
-    private static final String PREF_GROUP_NAME = "GroupName";
+    private static final String PREF_USERNAME = "Username";
+    private static final String PREF_GROUP_NAME = "Group Name";
     String dataDump = "";
 
     public void getData()
@@ -44,7 +44,8 @@ public class GroupTripViewMembersActivity extends AppCompatActivity {
         try {
             JSONObject obj = new JSONObject();
             obj.put("op", "1");
-            obj.put("phone", getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString(PREF_USERNAME, null));
+            Log.i("HERE I AM", "GARP");
+            obj.put("phone", getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString("Phone Number", null));
             URL url = new URL("http://192.168.1.117:8000/test");
             new sendData().execute(url.toString(), obj.toString());
         } catch (Exception e) {
@@ -60,7 +61,7 @@ public class GroupTripViewMembersActivity extends AppCompatActivity {
         getData();
 
         mGroupName = (TextView) findViewById(R.id.member_group_name);
-        mGroupName.setText(getGroupName());
+        mGroupName.setText("MEMBERS OF " + getGroupName().toUpperCase());
         //contacts = getMembers();
         contacts = new ArrayList<String>();
         //display();
@@ -223,7 +224,7 @@ class MemberCustomizedAdapter extends BaseAdapter {
             b = rand.nextInt();
             hm.put(user_phone_number, r+":"+g+":"+b);
         }
-        name.setTextColor(Color.rgb(r, g, b));
+        //name.setTextColor(Color.rgb(r, g, b));
         return vi;
     }
 

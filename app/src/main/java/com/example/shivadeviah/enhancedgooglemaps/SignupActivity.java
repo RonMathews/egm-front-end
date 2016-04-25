@@ -358,6 +358,7 @@ public class SignupActivity extends AppCompatActivity implements LoaderCallbacks
         private final String phoneNumber;
         private final String password;
         private final String age;
+        private  String reg_id;
         private int what;
 
         UserLoginTask(String name, String phoneNumber, String password, String age) {
@@ -365,6 +366,7 @@ public class SignupActivity extends AppCompatActivity implements LoaderCallbacks
             this.phoneNumber = phoneNumber;
             this.password = password;
             this.age = age;
+            this.reg_id = DashboardActivity.regid;
         }
 
         @Override
@@ -396,6 +398,7 @@ public class SignupActivity extends AppCompatActivity implements LoaderCallbacks
                 obj.put("phone", phoneNumber);
                 obj.put("name", name);
                 obj.put("password", password);
+                obj.put("regid",reg_id);
                 //obj.put("age", age);
                 // TODO: 20/4/16 Send data
 

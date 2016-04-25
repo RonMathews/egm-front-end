@@ -43,6 +43,7 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
     public static final String PREF_FILE = "PrefFile";
     private static final String PREF_GROUP_NAME = "Group Name";
     private static final String PREF_GROUP_DEST = "Group Destination";
+    public Timer timer;
     SharedPreferences sp = null;
 
     @Override
@@ -70,12 +71,32 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
 
     }
 
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        if(timer != null) {
+            try{
+                timer.cancel();
+            }catch(Exception e){
+                e.printStackTrace();
+                }
+        }
+    }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        if(timer != null) getData();
+    }
 
 
     public void getData()
     {
-        new Timer().scheduleAtFixedRate(new TimerTask() {
+        timer = new Timer();
+
+        timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 // this code will be executed after 2 seconds
@@ -83,7 +104,7 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
                     JSONObject obj = new JSONObject();
                     obj.put("op", "5");
                     obj.put("phone", getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString("Phone Number", null));
-                    URL url = new URL("http://192.168.0.106:8000/test");
+                    URL url = new URL("http://192.168.1.117:8000/test");
                     LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
                     Location location;
                     if (ActivityCompat.checkSelfPermission(GroupTripDashboardActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(GroupTripDashboardActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -165,16 +186,20 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
         try
         {
             JSONObject obj = new JSONObject();
-            obj.put("op", "3");
-            obj.put("phone", sp.getString("Phone Number", null));
-            URL url = new URL("http://192.168.0.106:8000/test");
-            new sendData().execute(url.toString(), obj.toString());
+            obj.put("op", 3);
+            Log.i("PHOOO", getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString("Phone Number", ""));
+            obj.put("phone", getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString("Phone Number", ""));
+            URL url = new URL("http://192.168.1.117:8000/test");
+            getSharedPreferences(PREF_FILE, MODE_PRIVATE).edit()
+                    .putString("Group Name", "")
+                    .putString("Group Destination", "")
+                    .commit();
+            new SendData().execute(url.toString(), obj.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        sp.edit().remove(PREF_GROUP_NAME).remove(PREF_GROUP_DEST).commit();
+        timer.cancel();
         finish();
-
     }
     public void chat(View v)
     {
@@ -186,7 +211,7 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
         startActivity(new Intent(GroupTripDashboardActivity.this, GroupTripViewMembersActivity.class));
     }
 
-    class sendData extends AsyncTask<String, String, String> {
+    class SendData extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... params) {
             HttpURLConnection connection = null;
@@ -271,10 +296,10 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
                 String[] names = object.getString("member_names").trim().split(";");
                 String[] lats = object.getString("member_lats").trim().split(";");
                 String[] lngs = object.getString("member_lngs").trim().split(";");
-                for(int i=0 ; i<=names.length;i++)
+                for(int i=0 ; i<names.length;i++)
 
                 {
-                    if(lats[i].equals("0.0")){continue;}
+                    //if(lats[i].equals("0.0")){continue;}
                     LatLng location = new LatLng(Double.parseDouble(lats[i]),Double.parseDouble(lngs[i]));
                     mMap.addMarker(new MarkerOptions().position(location).title(names[i]));
                     Log.i("ANAPLAX","PLAX ADD" + names);

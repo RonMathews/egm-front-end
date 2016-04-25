@@ -191,7 +191,7 @@ class CustomizedAdapter extends BaseAdapter {
         // TODO Auto-generated method stub
         View vi = convertView;
         if (vi == null)
-            vi = inflater.inflate(R.layout.activity_group_trip_chat_window, null);
+            vi = inflater.inflate(R.layout.member_view_pane, null);
 
         TextView name = (TextView) vi.findViewById(R.id.name);
         TextView text = (TextView) vi.findViewById(R.id.content);
