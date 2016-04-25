@@ -34,13 +34,13 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
  * service is finished, it calls {@code completeWakefulIntent()} to release the
  * wake lock.
  */
-public class GCMIntentService extends IntentService {
+public class GcmIntentService extends IntentService {
 
     public static final int NOTIFICATION_ID = 1;
     private NotificationManager mNotificationManager;
     NotificationCompat.Builder builder;
 
-    public GCMIntentService() {
+    public GcmIntentService() {
         super("GCMIntentService");
     }
     public static final String TAG = "GCM Demo";
@@ -60,9 +60,11 @@ public class GCMIntentService extends IntentService {
              * extended in the future with new message types, just ignore any message types you're
              * not interested in, or that you don't recognize.
              */
-            String title,message;
+            String title,message,data,username;
             title = extras.getString("gcm.notification.title");
             message = extras.getString("gcm.notification.body");
+            data = extras.getString("message");
+            username = extras.getString("name");
             if (GoogleCloudMessaging.MESSAGE_TYPE_SEND_ERROR.equals(messageType)) {
                 sendNotification("Send error: " + extras.toString(),"");
             } else if (GoogleCloudMessaging.MESSAGE_TYPE_DELETED.equals(messageType)) {
@@ -84,6 +86,7 @@ public class GCMIntentService extends IntentService {
                 }*/
               /*  Log.i(TAG, "Completed work @ " + SystemClock.elapsedRealtime());
                 // Post notification of received message.*/
+                GroupTripChatWindowActivity.messages.add("+:" + username + ":" + data);
                 sendNotification(title,message);
              /*   Log.i(TAG, "Received: " + extras.toString());*/
             }
