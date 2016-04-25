@@ -776,8 +776,6 @@ int drawable powered_by_google_dark 0x7f0200a9
 int drawable powered_by_google_light 0x7f0200aa
 int drawable splash_screen 0x7f0200ab
 int drawable splashimg 0x7f0200ac
-int id Destination 0x7f0d00b1
-int id Groupname 0x7f0d00b0
 int id action0 0x7f0d00e7
 int id action_bar 0x7f0d0081
 int id action_bar_activity_content 0x7f0d0000
@@ -860,6 +858,7 @@ int id design_menu_item_action_area_stub 0x7f0d00d6
 int id design_menu_item_text 0x7f0d00d5
 int id design_navigation_view 0x7f0d00d4
 int id dest 0x7f0d00a7
+int id destination 0x7f0d00b1
 int id diary_text 0x7f0d00fd
 int id disableHome 0x7f0d000f
 int id disconnect 0x7f0d00e5
@@ -886,6 +885,7 @@ int id google_wallet_classic 0x7f0d005b
 int id google_wallet_grayscale 0x7f0d005c
 int id google_wallet_monochrome 0x7f0d005d
 int id grayscale 0x7f0d005e
+int id group_name 0x7f0d00b0
 int id header_help 0x7f0d00ba
 int id header_text 0x7f0d00a4
 int id help 0x7f0d00b4

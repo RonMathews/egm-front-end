@@ -105,6 +105,8 @@ public class DisplayProfileActivity extends AppCompatActivity {
                             .putString("Phone Number", "")
                             .putString("Username", "")
                             .putString("Join Date", "")
+                            .putString("Group Name", "")
+                            .putString("Group Destination", "")
                             .commit();
                     return true;
                 }

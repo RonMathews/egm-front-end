@@ -2856,8 +2856,6 @@ containing a value of this type.
         public static final int splashimg=0x7f0200ac;
     }
     public static final class id {
-        public static final int Destination=0x7f0d00b1;
-        public static final int Groupname=0x7f0d00b0;
         public static final int action0=0x7f0d00e7;
         public static final int action_bar=0x7f0d0081;
         public static final int action_bar_activity_content=0x7f0d0000;
@@ -2940,6 +2938,7 @@ containing a value of this type.
         public static final int design_menu_item_text=0x7f0d00d5;
         public static final int design_navigation_view=0x7f0d00d4;
         public static final int dest=0x7f0d00a7;
+        public static final int destination=0x7f0d00b1;
         public static final int diary_text=0x7f0d00fd;
         public static final int disableHome=0x7f0d000f;
         public static final int disconnect=0x7f0d00e5;
@@ -2966,6 +2965,7 @@ containing a value of this type.
         public static final int google_wallet_grayscale=0x7f0d005c;
         public static final int google_wallet_monochrome=0x7f0d005d;
         public static final int grayscale=0x7f0d005e;
+        public static final int group_name=0x7f0d00b0;
         public static final int header_help=0x7f0d00ba;
         public static final int header_text=0x7f0d00a4;
         public static final int help=0x7f0d00b4;

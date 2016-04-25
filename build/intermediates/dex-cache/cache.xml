@@ -1,12 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
-
-    <item
-        jar="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="b87aa3c2e81602098b9e101e2541b8314fd4f75f">
-        <dex dex="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_cdd6fa5f96da3e59298bbd2ed73a5f432d266d28/classes.dex" />
-    </item>
-
-</items>
+<items version="2" />

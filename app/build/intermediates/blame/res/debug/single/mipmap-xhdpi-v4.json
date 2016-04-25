@@ -1,15 +1,11 @@
 [
     {
-        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/ic_launcher_map.png",
-        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/mipmap-xhdpi/ic_launcher_map.png"
+        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/ic_map.png",
+        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/mipmap-xhdpi/ic_map.png"
     },
     {
-        "merged": "/home/sarthak/github/egm-front-end/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/ic_launcher_map.png",
-        "source": "/home/sarthak/github/egm-front-end/app/src/main/res/mipmap-xhdpi/ic_launcher_map.png"
-    },
-    {
-        "merged": "/home/sarthak/github/egm-front-end/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/ic_map.png",
-        "source": "/home/sarthak/github/egm-front-end/app/src/main/res/mipmap-xhdpi/ic_map.png"
+        "merged": "/home/sarthak/github/egm-front-end/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/background.png",
+        "source": "/home/sarthak/github/egm-front-end/app/src/main/res/mipmap-xhdpi/background.png"
     },
     {
         "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/ic_launcher.png",
@@ -24,11 +20,15 @@
         "source": "/home/sarthak/github/egm-front-end/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/sarthak/github/egm-front-end/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/background.png",
-        "source": "/home/sarthak/github/egm-front-end/app/src/main/res/mipmap-xhdpi/background.png"
+        "merged": "/home/sarthak/github/egm-front-end/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/ic_map.png",
+        "source": "/home/sarthak/github/egm-front-end/app/src/main/res/mipmap-xhdpi/ic_map.png"
     },
     {
-        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/ic_map.png",
-        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/mipmap-xhdpi/ic_map.png"
+        "merged": "/home/sarthak/github/egm-front-end/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/ic_launcher_map.png",
+        "source": "/home/sarthak/github/egm-front-end/app/src/main/res/mipmap-xhdpi/ic_launcher_map.png"
+    },
+    {
+        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/mipmap-xhdpi-v4/ic_launcher_map.png",
+        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/mipmap-xhdpi/ic_launcher_map.png"
     }
 ]

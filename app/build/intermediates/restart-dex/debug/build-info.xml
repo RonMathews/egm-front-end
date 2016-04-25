@@ -4,37 +4,66 @@
     api-level="22"
     density="xxhdpi"
     format="7"
-    timestamp="37156987369831"
-    verifier="COMPATIBLE" >
+    timestamp="46902239009748" >
 
     <task
         name="javac"
-        duration="489" />
+        duration="424" />
     <task
         name="instant-run-dex"
-        duration="609" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="26" />
+        duration="12" />
     <task
         name="verifier"
-        duration="1" />
+        duration="2" />
 
     <artifact
-        location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/reload-dex/debug/classes.dex"
-        type="RELOAD_DEX" />
+        location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
+        type="DEX" />
 
-    <build timestamp="37058057361004" >
+    <build timestamp="44070744195153" >
         <artifact
             location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
-    <build
-        timestamp="37156987369831"
-        verifier="COMPATIBLE" >
+    <build timestamp="45392971182875" >
         <artifact
-            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/reload-dex/debug/classes.dex"
-            type="RELOAD_DEX" />
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/resources-debug.ap_"
+            type="RESOURCES" />
+        <artifact
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="46902239009748" >
+        <artifact
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

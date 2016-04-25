@@ -41,9 +41,8 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
 
     private GoogleMap mMap;
     public static final String PREF_FILE = "PrefFile";
-    private static final String PREF_GROUP_NAME = "GroupName";
-    private static final String PREF_GROUP_DEST = "GroupDestination";
-    private static final String PREF_USERNAME = "username";
+    private static final String PREF_GROUP_NAME = "Group Name";
+    private static final String PREF_GROUP_DEST = "Group Destination";
     SharedPreferences sp = null;
 
     @Override
@@ -55,8 +54,8 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        final TextView t1 = (TextView) findViewById(R.id.Groupname);
-        final TextView t2 = (TextView) findViewById(R.id.Destination);
+        final TextView t1 = (TextView) findViewById(R.id.group_name);
+        final TextView t2 = (TextView) findViewById(R.id.destination);
         String gName = "";
         String gDest = "";
         sp = getSharedPreferences(PREF_FILE, MODE_PRIVATE);
@@ -83,7 +82,7 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
                 try {
                     JSONObject obj = new JSONObject();
                     obj.put("op", "5");
-                    obj.put("phone", getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString(PREF_USERNAME, null));
+                    obj.put("phone", getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString("Phone Number", null));
                     URL url = new URL("http://192.168.0.106:8000/test");
                     LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
                     Location location;
@@ -167,7 +166,7 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
         {
             JSONObject obj = new JSONObject();
             obj.put("op", "3");
-            obj.put("phone", sp.getString(PREF_USERNAME, null));
+            obj.put("phone", sp.getString("Phone Number", null));
             URL url = new URL("http://192.168.0.106:8000/test");
             new sendData().execute(url.toString(), obj.toString());
         } catch (Exception e) {

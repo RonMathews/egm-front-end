@@ -224,6 +224,9 @@ public class CreateGroupActivity extends AppCompatActivity {
             obj.put("gdest", gDest);
             obj.put("members", members.toString());
             obj.put("phone", phoneNumber);
+            getSharedPreferences(PREF_FILE, MODE_PRIVATE).edit()
+                    .putString("Group Name", gName)
+                    .putString("Group Destination", gDest).commit();
             new sendData().execute(a.toString(), obj.toString());
         }
         catch (Exception e)
@@ -377,7 +380,20 @@ public class CreateGroupActivity extends AppCompatActivity {
         {
             super.onPostExecute(result);
             finish();
-            startActivity(new Intent(CreateGroupActivity.this, GroupTripDashboardActivity.class));
+            if(result == null)
+            {
+                getSharedPreferences(PREF_FILE, MODE_PRIVATE).edit()
+                        .putString("Group Name", "")
+                        .putString("Group Destination", "").commit();
+
+                Toast.makeText(CreateGroupActivity.this, "There was an issue processing your request! Sorry about that.", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(CreateGroupActivity.this, GroupTripDashboardActivity.class));
+
+            }
+            else
+            {
+                startActivity(new Intent(CreateGroupActivity.this, GroupTripDashboardActivity.class));
+            }
         }
     }
 
