@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:2:1-155:12
+ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:2:1-145:12
 	package
 		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:3:5-57
 		INJECTED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml
@@ -103,7 +103,7 @@ MERGED from [com.google.android.gms:play-services-maps:8.4.0] /Users/shivadeviah
 	android:required
 		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:45:9-32
 application
-ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:47:5-153:19
+ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:47:5-143:19
 MERGED from [com.google.android.gms:play-services-gcm:8.4.0] /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.4.0/AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.gms:play-services-basement:8.4.0] /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:23.3.0] /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/AndroidManifest.xml:22:5-20
@@ -425,26 +425,6 @@ MERGED from [com.google.android.gms:play-services-basement:8.4.0] /Users/shivade
 		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:141:13-66
 	android:name
 		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:140:13-58
-receiver#com.example.shivadeviah.enhancedgooglemaps.GCMBroadcastReceiver
-ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:143:9-150:20
-	android:permission
-		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:145:13-73
-	android:name
-		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:144:13-91
-intent-filter#com.example.shivadeviah.enhancedgooglemaps+com.google.android.c2dm.intent.RECEIVE
-ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:146:13-149:29
-action#com.google.android.c2dm.intent.RECEIVE
-ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:147:17-81
-	android:name
-		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:147:25-78
-category#com.example.shivadeviah.enhancedgooglemaps
-ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:148:17-87
-	android:name
-		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:148:27-84
-service#com.example.shivadeviah.enhancedgooglemaps.GCMIntentService
-ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:152:9-53
-	android:name
-		ADDED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml:152:18-50
 uses-sdk
 INJECTED from /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.google.android.gms:play-services-gcm:8.4.0] /Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.4.0/AndroidManifest.xml:18:5-42

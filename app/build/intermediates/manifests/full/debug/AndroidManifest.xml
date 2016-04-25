@@ -151,18 +151,6 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <receiver
-            android:name="com.example.shivadeviah.enhancedgooglemaps.GCMBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-
-                <category android:name="com.example.shivadeviah.enhancedgooglemaps" />
-            </intent-filter>
-        </receiver>
-
-        <service android:name="com.example.shivadeviah.enhancedgooglemaps.GCMIntentService" />
-
         <provider
             android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
             android:authorities="com.example.shivadeviah.enhancedgooglemaps.google_measurement_service"

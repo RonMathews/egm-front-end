@@ -4,29 +4,37 @@
     api-level="22"
     density="xxhdpi"
     format="7"
-    timestamp="8677332037903" >
+    timestamp="14160409441741"
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="287" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="404" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="24" />
     <task
         name="verifier"
-        duration="0" />
+        duration="1" />
 
     <artifact
-        location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/resources-debug.ap_"
-        type="RESOURCES" />
+        location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
-    <build timestamp="8677332037903" >
+    <build timestamp="14096997792766" >
         <artifact
-            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/resources-debug.ap_"
-            type="RESOURCES" />
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="14160409441741"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>
