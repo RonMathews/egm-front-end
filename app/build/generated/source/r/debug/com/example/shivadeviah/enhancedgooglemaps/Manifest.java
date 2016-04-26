@@ -9,6 +9,7 @@ package com.example.shivadeviah.enhancedgooglemaps;
 
 public final class Manifest {
     public static final class permission {
+        public static final String C2D_MESSAGE="com.example.shivadeviah.enhancedgooglemaps.permission.C2D_MESSAGE";
         public static final String MAPS_RECEIVE="com.example.shivadeviah.enhancedgooglemaps.permission.MAPS_RECEIVE";
     }
 }

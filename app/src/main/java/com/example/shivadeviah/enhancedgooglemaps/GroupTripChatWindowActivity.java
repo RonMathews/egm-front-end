@@ -1,7 +1,9 @@
 package com.example.shivadeviah.enhancedgooglemaps;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,6 +20,14 @@ import android.widget.TextView;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -27,12 +37,12 @@ public class GroupTripChatWindowActivity extends AppCompatActivity {
 
     private ListView listView;
     private ArrayAdapter<String> listAdapter;
-    ArrayList<String> messages;
+    static ArrayList<String> messages;
     private TextView mGroupName;
     private EditText mMsgText;
     public static final String PREF_FILE = "PrefFile";
-    private static final String PREF_USERNAME = "username";
-
+    private static final String PREF_USERNAME = "Username";
+    CustomizedAdapter mListAdapter = null;
 
 
     @Override
@@ -62,9 +72,20 @@ public class GroupTripChatWindowActivity extends AppCompatActivity {
         display();
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        // TODO: if there are new notifications
+
+    }
+
+
     public void display() {
         listView = (ListView) findViewById(R.id.chat_list_view);
-        listView.setAdapter(new CustomizedAdapter(this, messages));
+        mListAdapter = new CustomizedAdapter(this, messages);
+        listView.setAdapter(mListAdapter);
         updateFocus();
     }
 
@@ -76,38 +97,20 @@ public class GroupTripChatWindowActivity extends AppCompatActivity {
     public String getGroupName()
     {
         //// TODO: 10/4/16 get group name from database
-        return "MY_GROUP";
+        return getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString("Group Name", "");
     }
 
     public ArrayList<String> getMessages()
     {
         // TODO: 10/4/16 get messages from database for this group
         String msg[] = {
-                "+ : User_name2 : Message 1",
-                "- : User_name1 : Message 2",
-                "+ : User_name3 : Message 3",
-                "+ : User_name2 : Message 4",
-                "- : User_name1 : Message 5",
-                "+ : User_name4 : Message 6",
-                "+ : User_name2 : Message 7",
-                "- : User_name1 : Message 8",
-                "+ : User_name3 : Message 9",
-                "+ : User_name2 : Message 10",
-                "- : User_name1 : Message 11",
-                "+ : User_name4 : Message 12",
-                "+ : User_name2 : Message 13",
-                "- : User_name1 : Message 14",
-                "+ : User_name3 : Message 15",
-                "+ : User_name2 : Message 16",
-                "- : User_name1 : Message 17",
-                "+ : User_name4 : Message 18",
         };
         return new ArrayList<String>(Arrays.asList(msg));
     }
 
     public String getUserName()
     {
-        return getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString(PREF_USERNAME, null);
+        return getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString("Username", null);
     }
 
     //add user text
@@ -115,19 +118,27 @@ public class GroupTripChatWindowActivity extends AppCompatActivity {
     {
         if(noErrors())
         {
-            messages.add("- : " + getUserName() + " : " + mMsgText.getText().toString());
-            mMsgText.setText("");
-            updateFocus();
+
             try{
+                URL a = new URL("http://192.168.1.117:8000/chat");
                 String phoneNumber = getUserName();
                 JSONObject obj = new JSONObject();
-                obj.put("phone_number", phoneNumber);
-                obj.put("message_text", mMsgText.getText().toString());
+                obj.put("phone", phoneNumber);
+                obj.put("message", mMsgText.getText().toString());
+
+                new SendData().execute(a.toString(), obj.toString());
+
             }
             catch (Exception e)
             {
                 Log.i("error", "get list of messages");
             }
+
+            messages.add("- : " + getUserName() + " : " + mMsgText.getText().toString());
+            mMsgText.setText("");
+            mListAdapter.notifyDataSetChanged();
+            updateFocus();
+
         }
     }
 
@@ -149,6 +160,59 @@ public class GroupTripChatWindowActivity extends AppCompatActivity {
         }
 
         return allCorrect;
+    }
+
+    class SendData extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            HttpURLConnection connection = null;
+            try {
+                URL url = new URL(params[0]);
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("POST");
+                connection.setDoOutput(true);
+                OutputStream os = connection.getOutputStream();
+                String send = params[1];
+                os.write(send.getBytes());
+                os.flush();
+                os.close();
+                InputStream is = connection.getInputStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(is));
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line);
+                }
+                String data = sb.toString();
+                br.close();
+                return data;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            } finally {
+                if (connection != null)
+                    connection.disconnect();
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            try{
+
+                // TODO: Update the list view
+                JSONObject object = new JSONObject(result);
+
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+
+
+        }
     }
 }
 
@@ -191,7 +255,7 @@ class CustomizedAdapter extends BaseAdapter {
         // TODO Auto-generated method stub
         View vi = convertView;
         if (vi == null)
-            vi = inflater.inflate(R.layout.activity_group_trip_chat_window, null);
+            vi = inflater.inflate(R.layout.member_view_pane, null);
 
         TextView name = (TextView) vi.findViewById(R.id.name);
         TextView text = (TextView) vi.findViewById(R.id.content);

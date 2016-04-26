@@ -50,14 +50,14 @@ public class HelpDisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help_display);
         TextView text = (TextView) findViewById(R.id.help);
-        String helpString = "A way to enhance your travel experience\n" +
+        String helpString = "\t\tA way to enhance your travel experience!\t\t\n\n\n" +
                 "Help us plan your trip by choosing either 'GO FREESTYLE' or 'PLAN B'.\n" +
                 "Travel with us by choosing either 'GROUP TRIP' or 'TRAVEL DIARY\n\n" +
-                "GO FREESTYLE\nEnter source and destination and choose the waypoints you'd like to see and we'll suggest an optimal route.\n\n" +
-                "PLAN 'B'\nEnter your location and radius of area in concern and we'll suggest places to visit within the area.\n" +
-                "Or enter your location and the locations of those you'd like to visit and we'll suggest places you can all conveniently meet at.\n\n" +
-                "GROUP TRIP\nPlan a road trip with friends, track them and chat with them till you reach your destination\n\n" +
-                "TRAVEL DIARY\nWe'll help you keep track of your travel activities and generate a textual description of your trip which you can post on social media";
+                "\t\t\t\tGO FREESTYLE\nEnter source and destination and choose the waypoints you'd like to see and we'll suggest an optimal route.\n\n" +
+                "\t\t\t\tPLAN 'B'\nEnter your location and how far you're willing to drive and we'll suggest some great places to visit.\n" +
+                "Or enter yours and your friends' locations and we'll suggest places where you can all conveniently meet at.\n\n" +
+                "\t\t\t\tGROUP TRIP\nPlan a road trip with friends, track them and chat with them till you reach your destination.\n\n" +
+                "\t\t\t\tTRAVEL DIARY\nWe'll help you keep track of your travel activities and generate a textual description of your trip which you can then post on social media.";
         text.setText(helpString);
 
 
