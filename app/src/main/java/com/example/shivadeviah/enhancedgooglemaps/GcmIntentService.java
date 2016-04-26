@@ -112,7 +112,7 @@ public class GcmIntentService extends IntentService {
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText(msg))
                 .setContentText(msg)
-                .setSmallIcon(R.drawable.splashimg);
+                .setSmallIcon(R.mipmap.ic_launcher_map);
 
         mBuilder.setContentIntent(contentIntent);
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
