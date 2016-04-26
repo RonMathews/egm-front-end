@@ -37,7 +37,7 @@ public class GroupTripChatWindowActivity extends AppCompatActivity {
 
     private ListView listView;
     private ArrayAdapter<String> listAdapter;
-    ArrayList<String> messages;
+    static ArrayList<String> messages;
     private TextView mGroupName;
     private EditText mMsgText;
     public static final String PREF_FILE = "PrefFile";
