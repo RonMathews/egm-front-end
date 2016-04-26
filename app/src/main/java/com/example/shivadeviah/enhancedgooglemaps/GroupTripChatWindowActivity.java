@@ -120,7 +120,7 @@ public class GroupTripChatWindowActivity extends AppCompatActivity {
         {
 
             try{
-                URL a = new URL("http://192.168.1.117:8000/chat");
+                URL a = new URL(getString(R.string.ip) + "chat");
                 String phoneNumber = getUserName();
                 JSONObject obj = new JSONObject();
                 obj.put("phone", phoneNumber);

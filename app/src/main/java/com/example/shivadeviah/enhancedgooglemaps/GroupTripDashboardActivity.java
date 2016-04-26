@@ -104,7 +104,7 @@ public class GroupTripDashboardActivity extends FragmentActivity implements OnMa
                     JSONObject obj = new JSONObject();
                     obj.put("op", "5");
                     obj.put("phone", getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString("Phone Number", null));
-                    URL url = new URL("http://192.168.1.117:8000/test");
+                    URL url = new URL(getString(R.string.ip) + "test");
                     LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
                     Location location;
                     if (ActivityCompat.checkSelfPermission(GroupTripDashboardActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(GroupTripDashboardActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {

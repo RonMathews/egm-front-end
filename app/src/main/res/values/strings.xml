@@ -32,4 +32,5 @@
     <string name="title_activity_create_group">CreateGroup</string>
 
     <string name="username">Welcome, __HOLDER__</string>
+    <string name="ip">http://192.168.1.117:8000/</string>
 </resources>

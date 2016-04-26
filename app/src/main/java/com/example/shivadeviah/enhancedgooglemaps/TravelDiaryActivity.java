@@ -475,7 +475,7 @@ public class TravelDiaryActivity extends FragmentActivity implements OnMapReadyC
             obj.put("placeName", placeName);
             Log.v("JSON OUTPUT", obj.toString());
             Log.v("JSON OUTPUT", tripId+"");
-            new sendData().execute("http://192.168.1.117:8000/f4",obj.toString());
+            new sendData().execute(getString(R.string.ip) + "f4",obj.toString());
 
         }catch(Exception e){
             Log.v("JSON OUTPUT", e.toString());

@@ -343,7 +343,7 @@ public class DashboardActivity extends AppCompatActivity {
                 URL a = null;
                 JSONObject obj = new JSONObject();
                 try {
-                    a = new URL("http://192.168.1.117:8000/test");
+                    a = new URL(getString(R.string.ip) + "test");
 
                     Log.i("OHNANAWHATMANAME", pref.getString("Phone Number", ""));
                     obj.put("op", "4");

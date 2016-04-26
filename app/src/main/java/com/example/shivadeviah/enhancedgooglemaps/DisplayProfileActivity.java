@@ -75,7 +75,7 @@ public class DisplayProfileActivity extends AppCompatActivity {
                 JSONObject obj = new JSONObject();
                 obj.put("op", 2);
                 obj.put("phone", phoneNumber);
-                URL url = new URL("http://192.168.1.117:8000/login");
+                URL url = new URL(getString(R.string.ip) + "login");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
                 connection.setDoOutput(true);

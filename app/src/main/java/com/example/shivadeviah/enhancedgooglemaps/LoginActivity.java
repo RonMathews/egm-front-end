@@ -342,7 +342,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
                 obj.put("op", 1);
                 obj.put("phone", phoneNumber);
                 obj.put("password", password);
-                URL url = new URL("http://192.168.1.117:8000/login");
+                URL url = new URL(getString(R.string.ip) + "login");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
                 connection.setDoOutput(true);

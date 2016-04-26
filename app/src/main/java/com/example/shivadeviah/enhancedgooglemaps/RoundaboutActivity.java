@@ -53,7 +53,7 @@ public class RoundaboutActivity extends AppCompatActivity {
     String user_location;
     String data;
     String radius;
-    String localhost = "http://192.168.1.117:8000/f2";
+    String localhost = getString(R.string.ip) + "f2";
     List<AutoCompleteTextView> allEds = new ArrayList<>();
     private ProgressDialog progress=null;
     private LinearLayout mLayout;

@@ -77,7 +77,7 @@ public class FreestyleActivity extends Activity implements View.OnClickListener 
         }
         else{
             try {
-                a = new URL("http://192.168.1.117:8000/f1m1");
+                a = new URL(getString(R.string.ip) + "f1m1");
 
             } catch (MalformedURLException e) {
                 e.printStackTrace();

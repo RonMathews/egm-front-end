@@ -402,7 +402,7 @@ public class SignupActivity extends AppCompatActivity implements LoaderCallbacks
                 //obj.put("age", age);
                 // TODO: 20/4/16 Send data
 
-                URL url = new URL("http://192.168.1.117:8000/login");
+                URL url = new URL(getString(R.string.ip) + "login");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
                 connection.setDoOutput(true);

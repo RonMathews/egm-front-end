@@ -247,7 +247,7 @@ public class FreestyleInterimActivity extends Activity implements View.OnClickLi
                 startActivity(new Intent(this, FreestyleResultsActivity.class));
                 URL a = null;
                 try {
-                    a = new URL("http://192.168.1.117:8000/f1m2");
+                    a = new URL(getString(R.string.ip) + "f1m2");
 
                 } catch (MalformedURLException e) {
                     e.printStackTrace();

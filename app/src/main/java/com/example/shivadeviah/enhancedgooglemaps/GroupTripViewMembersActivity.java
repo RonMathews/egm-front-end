@@ -46,7 +46,7 @@ public class GroupTripViewMembersActivity extends AppCompatActivity {
             obj.put("op", "1");
             Log.i("HERE I AM", "GARP");
             obj.put("phone", getSharedPreferences(PREF_FILE, MODE_PRIVATE).getString("Phone Number", null));
-            URL url = new URL("http://192.168.1.117:8000/test");
+            URL url = new URL(getString(R.string.ip) + "test");
             new sendData().execute(url.toString(), obj.toString());
         } catch (Exception e) {
             e.printStackTrace();

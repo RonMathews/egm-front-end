@@ -217,7 +217,8 @@ public class CreateGroupActivity extends AppCompatActivity {
             }
         }
         try{
-            URL a = new URL("http://192.168.1.117:8000/test");
+            URL a = new URL(getString(R.string.ip) + "test");
+            Log.i("SHARON STRING RESOURCE", getString(R.string.ip) + "test");
             JSONObject obj = new JSONObject();
             obj.put("op", "0");
             obj.put("gname", gName);
