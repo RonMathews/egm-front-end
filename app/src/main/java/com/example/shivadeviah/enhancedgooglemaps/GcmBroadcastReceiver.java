@@ -32,7 +32,7 @@ import android.util.Log;
  * release the wake lock.
  */
 
-public class GCMBroadcastReceiver extends WakefulBroadcastReceiver {
+public class GcmBroadcastReceiver extends WakefulBroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {

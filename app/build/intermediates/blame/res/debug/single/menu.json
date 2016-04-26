@@ -4,15 +4,7 @@
         "source": "/home/sarthak/github/egm-front-end/app/src/main/res/menu/menu_loggedin.xml"
     },
     {
-        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/menu/menu_loggedin.xml",
-        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/menu/menu_loggedin.xml"
-    },
-    {
         "merged": "/home/sarthak/github/egm-front-end/app/build/intermediates/res/merged/debug/menu/menu_anonymous.xml",
         "source": "/home/sarthak/github/egm-front-end/app/src/main/res/menu/menu_anonymous.xml"
-    },
-    {
-        "merged": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/build/intermediates/res/merged/debug/menu/menu_anonymous.xml",
-        "source": "/Users/shivadeviah/Desktop/github/EnhancedGoogleMaps/app/src/main/res/menu/menu_anonymous.xml"
     }
 ]
