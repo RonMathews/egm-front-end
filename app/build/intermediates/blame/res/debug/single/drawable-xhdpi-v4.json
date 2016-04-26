@@ -260,12 +260,12 @@
         "source": "/home/sarthak/github/egm-front-end/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-xhdpi/places_ic_clear.png"
     },
     {
-        "merged": "/home/sarthak/github/egm-front-end/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_plusone_standard_off_client.png",
-        "source": "/home/sarthak/github/egm-front-end/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/res/drawable-xhdpi/ic_plusone_standard_off_client.png"
-    },
-    {
         "merged": "/home/sarthak/github/egm-front-end/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_pause_dark.png",
         "source": "/home/sarthak/github/egm-front-end/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-xhdpi/ic_pause_dark.png"
+    },
+    {
+        "merged": "/home/sarthak/github/egm-front-end/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_plusone_standard_off_client.png",
+        "source": "/home/sarthak/github/egm-front-end/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/res/drawable-xhdpi/ic_plusone_standard_off_client.png"
     },
     {
         "merged": "/home/sarthak/github/egm-front-end/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal.9.png",
